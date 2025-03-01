@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BrandLogo from "../images/white-byte-club.png";
 import { useState } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
 
@@ -24,23 +25,7 @@ const FlipNav = () => {
 const Logo = () => {
   // Temp logo from https://logoipsum.com/
   return (
-        <svg
-        width="50"
-        height="39"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fill-gray-800"
-        >
-        <path
-            d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-            stopColor="#000000"
-        ></path>
-        <path
-            d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-            stopColor="#000000"
-        ></path>
-        </svg>
+    <img src={BrandLogo} width={45} alt="brand logo" />
   );
 };
 
@@ -71,7 +56,7 @@ const NavLink = ({ text }: any) => {
       rel="nofollow"
       className="hidden lg:block h-[30px] overflow-hidden font-medium"
     >
-      <motion.div whileHover={{ y: -30 }}>
+      <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
         <span className="flex items-center h-[30px] text-gray-500">{text}</span>
         <span className="flex items-center h-[30px] text-indigo-600">
           {text}
@@ -110,26 +95,26 @@ const NavMenu = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-white shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Our Mission" href="#" />
-      <MenuLink text="Meet the Team" href="#" />
-      <MenuLink text="The Vision" href="#" />
-      <MenuLink text="Join Early" href="#" />
+      <MenuLink text="Our Mission" id="mission" />
+      <MenuLink text="Meet the Team" id="meet-team" />
+      <MenuLink text="The Vision" id="vision" />
+      <MenuLink text="Join Early" id="join-early" />
     </motion.div>
   );
 };
 
-const MenuLink = ({ text, href }: any) => {
+const MenuLink = ({ text, id }: any) => {
   return (
     <motion.a
       variants={menuLinkVariants}
       rel="nofollow"
-      href={href}
+      href={`#${id}`}
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
         <FiArrowRight className="h-[30px] text-gray-950" />
       </motion.span>
-      <motion.div whileHover={{ y: -30 }}>
+      <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
         <span className="flex items-center h-[30px] text-gray-500">{text}</span>
         <span className="flex items-center h-[30px] text-indigo-600">
           {text}
@@ -145,15 +130,17 @@ const menuVariants = {
   open: {
     scaleY: 1,
     transition: {
+      duration: 0.4, // Adjusted to be faster than default but slower than previous
       when: "beforeChildren",
-      staggerChildren: 0.1,
+      staggerChildren: 0.07, // In between original (0.1) and previous (0.05)
     },
   },
   closed: {
     scaleY: 0,
     transition: {
+      duration: 0.35, // Slightly faster closing than opening
       when: "afterChildren",
-      staggerChildren: 0.1,
+      staggerChildren: 0.07, // In between original (0.1) and previous (0.05)
     },
   },
 };
@@ -162,18 +149,22 @@ const menuLinkVariants = {
   open: {
     y: 0,
     opacity: 1,
+    transition: { duration: 0.3 } // Moderate fade in speed
   },
   closed: {
     y: -10,
     opacity: 0,
+    transition: { duration: 0.25 } // Slightly faster fade out
   },
 };
 
 const menuLinkArrowVariants = {
   open: {
     x: 0,
+    transition: { duration: 0.3 } // Moderate arrow entrance
   },
   closed: {
     x: -4,
+    transition: { duration: 0.25 } // Slightly faster arrow exit
   },
 };
