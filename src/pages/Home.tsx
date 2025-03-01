@@ -1,7 +1,10 @@
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className="pt-[80px]">
+            {/* our mission section */}
+            <div>
+                
+            </div>
         </div>
     )
 };
