@@ -9,7 +9,7 @@ const App = () => {
         <Outlet />
       </main>
     </div>
-  )
+  );
 };
 
 export default App;

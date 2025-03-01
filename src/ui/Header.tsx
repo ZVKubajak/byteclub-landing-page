@@ -5,7 +5,7 @@ import { FiMenu, FiArrowRight } from "react-icons/fi";
 
 const Header = () => {
   return (
-    <div className="fixed w-full">
+    <div className="fixed w-full z-50">
       <FlipNav />
     </div>
   );
@@ -14,7 +14,7 @@ const Header = () => {
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[#fe262d] p-4 border-b-[1px] border-gray-200 flex items-center justify-between relative">
+    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} />
