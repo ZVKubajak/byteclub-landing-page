@@ -13,7 +13,7 @@ const Header = () => {
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[] p-4 border-b-[1px] border-gray-200 flex items-center justify-between relative">
+    <nav className="bg-[#fe262d] p-4 border-b-[1px] border-gray-200 flex items-center justify-between relative">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} />
@@ -24,23 +24,23 @@ const FlipNav = () => {
 const Logo = () => {
   // Temp logo from https://logoipsum.com/
   return (
-    <svg
-      width="50"
-      height="39"
-      viewBox="0 0 50 39"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="fill-gray-800"
-    >
-      <path
-        d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-        stopColor="#000000"
-      ></path>
-      <path
-        d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-        stopColor="#000000"
-      ></path>
-    </svg>
+        <svg
+        width="50"
+        height="39"
+        viewBox="0 0 50 39"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="fill-gray-800"
+        >
+        <path
+            d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
+            stopColor="#000000"
+        ></path>
+        <path
+            d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
+            stopColor="#000000"
+        ></path>
+        </svg>
   );
 };
 
@@ -53,7 +53,7 @@ const NavLeft = ({ setIsOpen }: any) => {
         className="block lg:hidden text-gray-950 text-2xl"
         onClick={() => setIsOpen((pv: any) => !pv)}
       >
-        <FiMenu />
+        <FiMenu className="text-white" />
       </motion.button>
       <Logo />
       <NavLink text="Solutions" />
@@ -87,16 +87,16 @@ const NavRight = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
+        className="px-4 py-2 text-white bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
       >
-        Sign in
+        Contact Us
       </motion.button>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium rounded-md whitespace-nowrap"
+        className="px-4 py-2 bg-white text-[#fe262d] font-medium rounded-md whitespace-nowrap"
       >
-        Sign up
+        Register
       </motion.button>
     </div>
   );
@@ -110,20 +110,20 @@ const NavMenu = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-white shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Solutions" />
-      <MenuLink text="Community" />
-      <MenuLink text="Pricing" />
-      <MenuLink text="Company" />
+      <MenuLink text="Our Mission" href="#" />
+      <MenuLink text="Meet the Team" href="#" />
+      <MenuLink text="The Vision" href="#" />
+      <MenuLink text="Join Early" href="#" />
     </motion.div>
   );
 };
 
-const MenuLink = ({ text }: any) => {
+const MenuLink = ({ text, href }: any) => {
   return (
     <motion.a
       variants={menuLinkVariants}
       rel="nofollow"
-      href="#"
+      href={href}
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
