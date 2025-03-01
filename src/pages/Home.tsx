@@ -1,5 +1,6 @@
 import HeroPhoto from "../images/hero-photo.avif";
 import { Link } from "react-router-dom";
+import { StaggerTestimonials } from "../ui/StaggerTestimonials";
 
 const Home = () => {
   return (
@@ -49,6 +50,12 @@ const Home = () => {
           Join a vibrant community where real-time reviews and shared
           experiences inspire your next gastronomic adventure.
         </p>
+      </div>
+      {/* meet the team section */}
+      <div className="text-center mt-6">
+        <h1 className="text-[#fe262d] text-lg">BYTE CLUB</h1>
+        <h1 className="text-2xl mt-7">Meet the Team</h1>
+        <StaggerTestimonials />
       </div>
     </div>
   );
