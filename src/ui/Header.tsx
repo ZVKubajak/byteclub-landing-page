@@ -98,7 +98,7 @@ const NavMenu = ({ isOpen }: any) => {
       <MenuLink text="Our Mission" id="mission" />
       <MenuLink text="Meet the Team" id="meet-team" />
       <MenuLink text="The Vision" id="vision" />
-      <MenuLink text="Join Early" id="join-early" />
+      <MenuLink text="Contact Us" id="contact" />
     </motion.div>
   );
 };

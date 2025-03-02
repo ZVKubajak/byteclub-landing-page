@@ -6,6 +6,7 @@ import Zander from "../images/zander.jpg";
 import Bryce from "../images/IMG_0240.jpg";
 import Phone from "../ui/3dPhone";
 import ButtonWrapper from "../ui/RegisterButton";
+import ContactForm from "../ui/ContactForm";
 
 const Home = () => {
   return (
@@ -111,7 +112,9 @@ const Home = () => {
         <ButtonWrapper>join the club</ButtonWrapper>
       </div>
       {/* contact us form */}
-      <div></div>
+      <div>
+      <ContactForm />
+      </div>
     </div>
   );
 };
