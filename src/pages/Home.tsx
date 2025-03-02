@@ -4,6 +4,8 @@ import TeamMember from "../ui/TeamMember";
 import Mike from "../images/mike.jpg";
 import Zander from "../images/zander.jpg";
 import Bryce from "../images/IMG_0240.jpg";
+import Phone from "../ui/3dPhone";
+import ButtonWrapper from "../ui/RegisterButton";
 
 const Home = () => {
   return (
@@ -53,12 +55,12 @@ const Home = () => {
           Join a vibrant community where real-time reviews and shared
           experiences inspire your next gastronomic adventure.
         </p>
+        <ButtonWrapper>get notified</ButtonWrapper>
       </div>
       {/* meet the team section */}
-      <div className="text-center mt-6 px-8">
-        <h1 className="text-[#fe262d] text-lg">BYTE CLUB</h1>
-        <h1 className="text-2xl mt-7">Meet the Team</h1>
-        <div className="mt-20">
+      <div className="text-center mt-9 px-8">
+        <h1 className="text-[#fe262d] text-lg">THE BYTE CLUB</h1>
+        <div className="mt-10 flex flex-col items-center">
           <TeamMember
             imgsrc={Mike}
             position="CEO @ Byte Club"
@@ -79,6 +81,37 @@ const Home = () => {
           />
         </div>
       </div>
+      {/* our vision section */}
+      <div className="text-center mt-9 px-5">
+        <h1 className="text-[#fe262d] text-lg">OUR VISION</h1>
+        <Phone />
+        <p className="text-lg text-left my-8">
+          Byte Club is revolutionizing the way people discover and review food,
+          making dining decisions easier than ever. With cutting-edge AI
+          technology, we help users see it before they eat it, providing visual
+          previews of dishes alongside trusted reviews. No more guessing what's
+          on the menu—Byte Club empowers users to make confident choices for
+          every meal.
+        </p>
+        <p className="text-lg text-left mb-8">
+          Our vision is to become the #1 source for food reviews nationwide,
+          bringing innovation to every household. Through AI validation, we
+          ensure reviews are authentic, unbiased, and tailored to each user’s
+          preferences. By combining community-driven insights with smart
+          technology, we’re creating a platform where everyone can dine with
+          confidence.
+        </p>
+        <p className="text-lg text-left mb-8">
+          The future of dining is seamless, interactive, and powered by AI—and
+          Byte Club is leading the way. Whether it's a family night out or
+          discovering the hottest trending meals, Byte Club makes finding great
+          food simple and stress-free. Join us now and be part of the movement
+          that's transforming the way the world eats.
+        </p>
+        <ButtonWrapper>join the club</ButtonWrapper>
+      </div>
+      {/* contact us form */}
+      <div></div>
     </div>
   );
 };
