@@ -1,5 +1,9 @@
 import HeroPhoto from "../images/hero-photo.avif";
 import { Link } from "react-router-dom";
+import TeamMember from "../ui/TeamMember";
+import Mike from "../images/mike.jpg";
+import Zander from "../images/zander.jpg";
+import Bryce from "../images/IMG_0240.jpg";
 
 const Home = () => {
   return (
@@ -49,6 +53,31 @@ const Home = () => {
           Join a vibrant community where real-time reviews and shared
           experiences inspire your next gastronomic adventure.
         </p>
+      </div>
+      {/* meet the team section */}
+      <div className="text-center mt-6 px-8">
+        <h1 className="text-[#fe262d] text-lg">BYTE CLUB</h1>
+        <h1 className="text-2xl mt-7">Meet the Team</h1>
+        <div className="mt-20">
+          <TeamMember
+            imgsrc={Mike}
+            position="CEO @ Byte Club"
+            message="We're thrilled to launch our innovative venture, merging AI with the food industry to redefine dining."
+            name="Mike Little"
+          />
+          <TeamMember
+            imgsrc={Zander}
+            position="Lead Developer @ Byte Club"
+            message="Our goal in developing this is to improve the dining experience, ensuring a more enjoyable and seamless time for everyone."
+            name="Zander Kubajak"
+          />
+          <TeamMember
+            imgsrc={Bryce}
+            position="Lead Developer @ Byte Club"
+            message="Our goal is to leverage AI to revolutionize the dining experience, helping people effortlessly discover and enjoy the best food around."
+            name="Bryce Berczik"
+          />
+        </div>
       </div>
     </div>
   );
