@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FiBatteryCharging, FiWifi } from "react-icons/fi";
+import BrandLogo from "../images/image.png"
 
 const Phone = () => {
   return (
@@ -45,8 +46,8 @@ const HeaderBar = () => {
     <>
       <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-neutral-900"></div>
       <div className="absolute right-3 top-2 z-10 flex gap-2">
-        <FiWifi className="text-neutral-600" />
-        <FiBatteryCharging className="text-neutral-600" />
+        <FiWifi className="text-white" />
+        <FiBatteryCharging className="text-white" />
       </div>
     </>
   );
@@ -56,23 +57,7 @@ const Screen = () => {
   return (
     <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-[#fe262d]">
       {/* Example logo from logoispum */}
-      <svg
-        width="50"
-        height="39"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fill-violet-500"
-      >
-        <path
-          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-          stopColor="#000000"
-        ></path>
-        <path
-          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-          stopColor="#000000"
-        ></path>
-      </svg>
+      <img src={BrandLogo} width={175} alt="brand logo" />
 
       <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-[1px] bg-white py-2 text-sm font-medium text-[#fe262d] backdrop-blur">
         Get Started
