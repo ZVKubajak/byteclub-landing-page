@@ -55,7 +55,7 @@ const Home = () => {
           Join a vibrant community where real-time reviews and shared
           experiences inspire your next gastronomic adventure.
         </p>
-        <ButtonWrapper />
+        <ButtonWrapper>get notified</ButtonWrapper>
       </div>
       {/* meet the team section */}
       <div className="text-center mt-9 px-8">
@@ -108,7 +108,10 @@ const Home = () => {
           food simple and stress-free. Join us now and be part of the movement
           that's transforming the way the world eats.
         </p>
+        <ButtonWrapper>join the club</ButtonWrapper>
       </div>
+      {/* contact us form */}
+      <div></div>
     </div>
   );
 };

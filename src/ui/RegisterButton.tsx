@@ -1,19 +1,19 @@
 import { FiLogIn } from "react-icons/fi";
 
-const ButtonWrapper = () => {
+const ButtonWrapper = ({ children }: { children: string }) => {
   return (
     <div className="flex min-h-[100px] items-center justify-center">
-      <RoundedSlideButton />
+      <RoundedSlideButton text={children} />
     </div>
   );
 };
 
-const RoundedSlideButton = () => {
+const RoundedSlideButton = ({ text }: { text: string }) => {
   const handleRegisterClick = () => {
     window.location.href = "/register";
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  
+
   return (
     <button
       onClick={handleRegisterClick}
@@ -35,7 +35,7 @@ const RoundedSlideButton = () => {
         active:scale-95`}
     >
       <FiLogIn />
-      <span>Get Notified</span>
+      <span>{text}</span>
     </button>
   );
 };
