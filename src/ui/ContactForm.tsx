@@ -6,7 +6,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-lg">
+    <div className="max-w-md mx-auto p-6 shadow-lg">
       <h1 className="text-[#fe262d] text-center text-lg mt-4 mb-7">CONTACT</h1>
       <form>
         <div className="mb-4">

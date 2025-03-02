@@ -23,10 +23,7 @@ const FlipNav = () => {
 };
 
 const Logo = () => {
-  // Temp logo from https://logoipsum.com/
-  return (
-    <img src={BrandLogo} width={45} alt="brand logo" />
-  );
+  return <img src={BrandLogo} width={45} alt="brand logo" />;
 };
 
 const NavLeft = ({ setIsOpen }: any) => {
@@ -36,7 +33,7 @@ const NavLeft = ({ setIsOpen }: any) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="block lg:hidden text-gray-950 text-2xl"
-        onClick={() => setIsOpen((pv: any) => !pv)}
+        onClick={() => setIsOpen((prev: any) => !prev)}
       >
         <FiMenu className="text-white" />
       </motion.button>
@@ -58,9 +55,7 @@ const NavLink = ({ text }: any) => {
     >
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
         <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
       </motion.div>
     </a>
   );
@@ -69,13 +64,14 @@ const NavLink = ({ text }: any) => {
 const NavRight = () => {
   return (
     <div className="flex items-center gap-4">
-      <motion.button
+      <motion.a
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        href="#contact"
         className="px-4 py-2 text-white bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
       >
         Contact Us
-      </motion.button>
+      </motion.a>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -104,11 +100,27 @@ const NavMenu = ({ isOpen }: any) => {
 };
 
 const MenuLink = ({ text, id }: any) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      const headerOffset = 90; // Adjust this value to your header's height
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      console.log(offsetPosition)
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <motion.a
       variants={menuLinkVariants}
       rel="nofollow"
       href={`#${id}`}
+      onClick={handleClick}
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
@@ -116,13 +128,12 @@ const MenuLink = ({ text, id }: any) => {
       </motion.span>
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
         <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
       </motion.div>
     </motion.a>
   );
 };
+
 
 export default Header;
 
@@ -130,17 +141,17 @@ const menuVariants = {
   open: {
     scaleY: 1,
     transition: {
-      duration: 0.4, // Adjusted to be faster than default but slower than previous
+      duration: 0.2,
       when: "beforeChildren",
-      staggerChildren: 0.07, // In between original (0.1) and previous (0.05)
+      staggerChildren: 0.03,
     },
   },
   closed: {
     scaleY: 0,
     transition: {
-      duration: 0.35, // Slightly faster closing than opening
+      duration: 0.2,
       when: "afterChildren",
-      staggerChildren: 0.07, // In between original (0.1) and previous (0.05)
+      staggerChildren: 0.03,
     },
   },
 };
@@ -149,22 +160,22 @@ const menuLinkVariants = {
   open: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.3 } // Moderate fade in speed
+    transition: { duration: 0.15 },
   },
   closed: {
     y: -10,
     opacity: 0,
-    transition: { duration: 0.25 } // Slightly faster fade out
+    transition: { duration: 0.1 },
   },
 };
 
 const menuLinkArrowVariants = {
   open: {
     x: 0,
-    transition: { duration: 0.3 } // Moderate arrow entrance
+    transition: { duration: 0.15 },
   },
   closed: {
     x: -4,
-    transition: { duration: 0.25 } // Slightly faster arrow exit
+    transition: { duration: 0.1 },
   },
 };

@@ -31,7 +31,7 @@ const Home = () => {
         </div>
       </div>
       {/* our mission text */}
-      <div className="absolute top-[420px] bg-[#fe262d] mx-4 py-5 text-center px-4">
+      <div id="mission" className="absolute top-[420px] bg-[#fe262d] mx-4 py-5 text-center px-4">
         <h1 className="text-white text-2xl font-semibold mb-5">Our Mission</h1>
         <p className="text-white text-lg">
           We integrate advanced AI to uncover exceptional culinary experiences
@@ -59,7 +59,7 @@ const Home = () => {
         <ButtonWrapper>get notified</ButtonWrapper>
       </div>
       {/* meet the team section */}
-      <div className="text-center mt-9 px-8">
+      <div id="meet-team" className="text-center mt-9 px-8">
         <h1 className="text-[#fe262d] text-lg">THE BYTE CLUB</h1>
         <div className="mt-10 flex flex-col items-center">
           <TeamMember
@@ -83,7 +83,7 @@ const Home = () => {
         </div>
       </div>
       {/* our vision section */}
-      <div className="text-center mt-9 px-5">
+      <div id="vision" className="text-center mt-9 px-5">
         <h1 className="text-[#fe262d] text-lg">OUR VISION</h1>
         <Phone />
         <p className="text-lg text-left my-8">
@@ -112,7 +112,7 @@ const Home = () => {
         <ButtonWrapper>join the club</ButtonWrapper>
       </div>
       {/* contact us form */}
-      <div>
+      <div id="contact">
       <ContactForm />
       </div>
     </div>
