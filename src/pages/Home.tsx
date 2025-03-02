@@ -60,7 +60,7 @@ const Home = () => {
       </div>
       {/* meet the team section */}
       <div id="meet-team" className="text-center mt-9 px-8">
-        <h1 className="text-[#fe262d] text-lg">THE BYTE CLUB</h1>
+        <h1 className="text-[#fe262d] text-lg">MEET THE BYTE CLUB</h1>
         <div className="mt-10 flex flex-col items-center">
           <TeamMember
             imgsrc={Mike}

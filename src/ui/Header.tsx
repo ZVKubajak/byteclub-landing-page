@@ -17,7 +17,7 @@ const FlipNav = () => {
     <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
-      <NavMenu isOpen={isOpen} />
+      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 };
@@ -83,7 +83,8 @@ const NavRight = () => {
   );
 };
 
-const NavMenu = ({ isOpen }: any) => {
+const NavMenu = ({ isOpen, setIsOpen }: any) => {
+  const closeMenu = () => setIsOpen(false);
   return (
     <motion.div
       variants={menuVariants}
@@ -91,28 +92,28 @@ const NavMenu = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-white shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Our Mission" id="mission" />
-      <MenuLink text="Meet the Team" id="meet-team" />
-      <MenuLink text="The Vision" id="vision" />
-      <MenuLink text="Contact Us" id="contact" />
+      <MenuLink text="Our Mission" id="mission" closeMenu={closeMenu} />
+      <MenuLink text="Meet the Team" id="meet-team" closeMenu={closeMenu} />
+      <MenuLink text="The Vision" id="vision" closeMenu={closeMenu} />
+      <MenuLink text="Contact Us" id="contact" closeMenu={closeMenu} />
     </motion.div>
   );
 };
 
-const MenuLink = ({ text, id }: any) => {
+const MenuLink = ({ text, id, closeMenu }: any) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     const targetElement = document.getElementById(id);
     if (targetElement) {
-      const headerOffset = 90; // Adjust this value to your header's height
+      const headerOffset = 90;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      console.log(offsetPosition)
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
     }
+    if (closeMenu) closeMenu();
   };
 
   return (
@@ -133,7 +134,6 @@ const MenuLink = ({ text, id }: any) => {
     </motion.a>
   );
 };
-
 
 export default Header;
 
