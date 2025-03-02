@@ -4,6 +4,7 @@ import TeamMember from "../ui/TeamMember";
 import Mike from "../images/mike.jpg";
 import Zander from "../images/zander.jpg";
 import Bryce from "../images/IMG_0240.jpg";
+import Phone from "../ui/3dPhone";
 
 const Home = () => {
   return (
@@ -55,10 +56,10 @@ const Home = () => {
         </p>
       </div>
       {/* meet the team section */}
-      <div className="text-center mt-6 px-8">
+      <div className="text-center mt-9 px-8">
         <h1 className="text-[#fe262d] text-lg">BYTE CLUB</h1>
         <h1 className="text-2xl mt-7">Meet the Team</h1>
-        <div className="mt-20">
+        <div className="mt-20 flex flex-col items-center">
           <TeamMember
             imgsrc={Mike}
             position="CEO @ Byte Club"
@@ -78,6 +79,11 @@ const Home = () => {
             name="Bryce Berczik"
           />
         </div>
+      </div>
+      {/* our vision section */}
+      <div className="text-center mt-9">
+        <h1 className="text-[#fe262d] text-lg">OUR VISION</h1>
+        <Phone />
       </div>
     </div>
   );
