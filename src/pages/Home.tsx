@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import HeroPhoto from "../images/hero-photo.avif";
 import { Link } from "react-router-dom";
 import TeamMember from "../ui/TeamMember";
@@ -9,6 +11,26 @@ import ButtonWrapper from "../ui/RegisterButton";
 import ContactForm from "../ui/ContactForm";
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.substring(1);
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          const headerOffset = 90;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div className="pt-[75px]">
       {/* Hero Section */}

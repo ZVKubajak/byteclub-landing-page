@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import BrandLogo from "../images/white-byte-club.png";
 import { useState } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -23,7 +24,12 @@ const FlipNav = () => {
 };
 
 const Logo = () => {
-  return <img src={BrandLogo} width={45} alt="brand logo" />;
+  const handleHomeClick = () => {
+    window.location.href = "/";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return <img src={BrandLogo} onClick={handleHomeClick} width={45} alt="brand logo" />;
 };
 
 const NavLeft = ({ setIsOpen }: any) => {
@@ -62,17 +68,48 @@ const NavLink = ({ text }: any) => {
 };
 
 const NavRight = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      // If not on the homepage, navigate to "/" with the hash.
+      navigate(`/#contact`);
+    } else {
+      // If already on the homepage, perform smooth scrolling.
+      const targetElement = document.getElementById("contact");
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  const handleRegisterClick = () => {
+    window.location.href = "/register";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="flex items-center gap-4">
       <motion.a
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         href="#contact"
+        onClick={handleContactClick}
         className="px-4 py-2 text-white bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
       >
         Contact Us
       </motion.a>
       <motion.button
+        onClick={handleRegisterClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="px-4 py-2 bg-white text-[#fe262d] font-medium rounded-md whitespace-nowrap"
@@ -101,18 +138,27 @@ const NavMenu = ({ isOpen, setIsOpen }: any) => {
 };
 
 const MenuLink = ({ text, id, closeMenu }: any) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const targetElement = document.getElementById(id);
-    if (targetElement) {
-      const headerOffset = 90;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+
+    if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    } else {
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
+
     if (closeMenu) closeMenu();
   };
 
@@ -134,6 +180,7 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
     </motion.a>
   );
 };
+
 
 export default Header;
 
