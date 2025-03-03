@@ -21,16 +21,16 @@ const ContactForm = () => {
 
     // Validate email
     if (!email.trim()) {
-      newErrors.email = "Hey, we need your email address!";
+      newErrors.email = "Please enter an email address.";
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Hey, that's not a valid email address!";
+      newErrors.email = "Please enter a valid email address.";
       isValid = false;
     }
 
     // Validate message
     if (!message.trim()) {
-      newErrors.message = "Don't forget to write your message!";
+      newErrors.message = "Please enter a message.";
       isValid = false;
     }
 
