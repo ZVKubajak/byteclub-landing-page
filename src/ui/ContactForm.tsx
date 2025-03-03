@@ -76,7 +76,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 shadow-lg">
+    <div className="max-w-md mx-auto p-6">
       <h1 className="text-[#fe262d] text-center text-lg mt-4 mb-7">CONTACT</h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
