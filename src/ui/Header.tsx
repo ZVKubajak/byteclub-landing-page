@@ -62,6 +62,11 @@ const NavLink = ({ text }: any) => {
 };
 
 const NavRight = () => {
+  const handleRegisterClick = () => {
+    window.location.href = "/register";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="flex items-center gap-4">
       <motion.a
@@ -73,6 +78,7 @@ const NavRight = () => {
         Contact Us
       </motion.a>
       <motion.button
+        onClick={handleRegisterClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="px-4 py-2 bg-white text-[#fe262d] font-medium rounded-md whitespace-nowrap"
