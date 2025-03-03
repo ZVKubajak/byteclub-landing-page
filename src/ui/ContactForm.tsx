@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
-import Loading from "./Loading"; // Ensure this path is correct
+import Loading from "./Loading";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -10,14 +10,49 @@ const ContactForm = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [errors, setErrors] = useState({
+    email: "",
+    message: ""
+  });
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { email: "", message: "" };
+
+    // Validate email
+    if (!email.trim()) {
+      newErrors.email = "Hey, we need your email address!";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Hey, that's not a valid email address!";
+      isValid = false;
+    }
+
+    // Validate message
+    if (!message.trim()) {
+      newErrors.message = "Don't forget to write your message!";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
+    
+    // Validate the form before submission
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
-    setIsModalOpen(true); // Open modal on submit
+    setIsModalOpen(true); // Open modal only after validation passes
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "73a6d637-0dd7-4625-ba1a-3c217cac240a");
+    formData.append("access_key",
+       "73a6d637-0dd7-4625-ba1a-3c217cac240a"
+      );
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -29,6 +64,9 @@ const ContactForm = () => {
     if (data.success) {
       setResult("Form Submitted Successfully");
       event.target.reset();
+      setName("");
+      setEmail("");
+      setMessage("");
     } else {
       setResult(data.message);
     }
@@ -63,13 +101,26 @@ const ContactForm = () => {
             Email <span className="text-[#fe262d]">*</span>
           </label>
           <input
-            type="email"
+            type="text"
             name="email"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 ${
+              errors.email ? "border-red-500" : ""
+            }`}
             placeholder="Enter your email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (errors.email) {
+                setErrors({ ...errors, email: "" });
+              }
+            }}
           />
+          {errors.email && (
+            <div className="flex items-center mt-1 text-red-500">
+              <FiAlertCircle className="mr-1" />
+              <p className="text-sm">{errors.email}</p>
+            </div>
+          )}
         </div>
         <div className="mb-4">
           <label
@@ -80,12 +131,25 @@ const ContactForm = () => {
           </label>
           <textarea
             name="message"
-            className="w-full px-4 py-2 border rounded-lg min-h-36 max-h-36 focus:outline-none focus:ring-2 focus:ring-red-500"
+            className={`w-full px-4 py-2 border rounded-lg min-h-36 max-h-36 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+              errors.message ? "border-red-500" : ""
+            }`}
             placeholder="Enter your feedback"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              if (errors.message) {
+                setErrors({ ...errors, message: "" });
+              }
+            }}
             rows={4}
           />
+          {errors.message && (
+            <div className="flex items-center mt-1 text-red-500">
+              <FiAlertCircle className="mr-1" />
+              <p className="text-sm">{errors.message}</p>
+            </div>
+          )}
         </div>
         <button
           type="submit"

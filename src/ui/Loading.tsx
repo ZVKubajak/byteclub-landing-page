@@ -19,7 +19,7 @@ const variants = {
     transition: {
       repeat: Infinity,
       repeatType: "mirror" as const,
-      duration: 1,
+      duration: 0.5, // Reduced from 1 to 0.5 seconds
       ease: "circIn",
     },
   },
@@ -29,7 +29,7 @@ const BarLoader = () => {
   return (
     <motion.div
       transition={{
-        staggerChildren: 0.25,
+        staggerChildren: 0.1, // Reduced from 0.25 to 0.1 seconds
       }}
       initial="initial"
       animate="animate"
