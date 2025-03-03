@@ -12,7 +12,7 @@ const ContactForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
-    message: ""
+    message: "",
   });
 
   const validateForm = () => {
@@ -40,19 +40,17 @@ const ContactForm = () => {
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
-    
+
     // Validate the form before submission
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
     setIsModalOpen(true); // Open modal only after validation passes
     const formData = new FormData(event.target);
 
-    formData.append("access_key",
-       "73a6d637-0dd7-4625-ba1a-3c217cac240a"
-      );
+    formData.append("access_key", "73a6d637-0dd7-4625-ba1a-3c217cac240a");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -68,7 +66,11 @@ const ContactForm = () => {
       setEmail("");
       setMessage("");
     } else {
-      setResult(data.message);
+      setResult("Uh oh, something went wrong");
+      event.target.reset();
+      setName("");
+      setEmail("");
+      setMessage("");
     }
     setIsSubmitting(false);
   };
