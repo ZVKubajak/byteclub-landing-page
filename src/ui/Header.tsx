@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import BrandLogo from "../images/white-byte-club.png";
 import { useState } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -23,7 +24,12 @@ const FlipNav = () => {
 };
 
 const Logo = () => {
-  return <img src={BrandLogo} width={45} alt="brand logo" />;
+  const handleHomeClick = () => {
+    window.location.href = "/";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return <img src={BrandLogo} onClick={handleHomeClick} width={45} alt="brand logo" />;
 };
 
 const NavLeft = ({ setIsOpen }: any) => {
@@ -107,18 +113,29 @@ const NavMenu = ({ isOpen, setIsOpen }: any) => {
 };
 
 const MenuLink = ({ text, id, closeMenu }: any) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const targetElement = document.getElementById(id);
-    if (targetElement) {
-      const headerOffset = 90;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+
+    if (location.pathname !== "/") {
+      // Navigate to the homepage with the hash attached.
+      navigate(`/#${id}`);
+    } else {
+      // If already on the homepage, perform smooth scrolling.
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
+
     if (closeMenu) closeMenu();
   };
 
@@ -140,6 +157,7 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
     </motion.a>
   );
 };
+
 
 export default Header;
 
