@@ -6,6 +6,7 @@ import Zander from "../images/zander.jpg";
 import Bryce from "../images/IMG_0240.jpg";
 import Phone from "../ui/3dPhone";
 import ButtonWrapper from "../ui/RegisterButton";
+import ContactForm from "../ui/ContactForm";
 
 const Home = () => {
   return (
@@ -20,17 +21,13 @@ const Home = () => {
         {/* Hero text */}
         <div className="relative text-center text-white px-4">
           <h1 className="text-4xl font-bold">AI-Driven Food Discoveries</h1>
-          <p className="my-4 text-xl">
-            Dive into a new era of culinary experiences where cutting-edge AI
-            redefines food reviews.
-          </p>
           <Link to="/register" className="underline">
             Register Now
           </Link>
         </div>
       </div>
       {/* our mission text */}
-      <div className="absolute top-[420px] bg-[#fe262d] mx-4 py-5 text-center px-4">
+      <div id="mission" className="absolute top-[380px] bg-[#fe262d] mx-4 py-5 text-center px-4">
         <h1 className="text-white text-2xl font-semibold mb-5">Our Mission</h1>
         <p className="text-white text-lg">
           We integrate advanced AI to uncover exceptional culinary experiences
@@ -39,7 +36,7 @@ const Home = () => {
         </p>
       </div>
       {/* info section */}
-      <div className="pt-[275px] px-5 text-left">
+      <div className="pt-[230px] px-5 text-left">
         <p className="text-lg mb-8">
           Experience a revolutionary dining companion designed to transform your
           food journey. Our innovative platform empowers you to review your
@@ -58,8 +55,8 @@ const Home = () => {
         <ButtonWrapper>get notified</ButtonWrapper>
       </div>
       {/* meet the team section */}
-      <div className="text-center mt-9 px-8">
-        <h1 className="text-[#fe262d] text-lg">THE BYTE CLUB</h1>
+      <div id="meet-team" className="text-center mt-9 px-8">
+        <h1 className="text-[#fe262d] text-lg">MEET THE BYTE CLUB</h1>
         <div className="mt-10 flex flex-col items-center">
           <TeamMember
             imgsrc={Mike}
@@ -82,7 +79,7 @@ const Home = () => {
         </div>
       </div>
       {/* our vision section */}
-      <div className="text-center mt-9 px-5">
+      <div id="vision" className="text-center mt-9 px-5">
         <h1 className="text-[#fe262d] text-lg">OUR VISION</h1>
         <Phone />
         <p className="text-lg text-left my-8">
@@ -111,7 +108,9 @@ const Home = () => {
         <ButtonWrapper>join the club</ButtonWrapper>
       </div>
       {/* contact us form */}
-      <div></div>
+      <div id="contact">
+      <ContactForm />
+      </div>
     </div>
   );
 };
