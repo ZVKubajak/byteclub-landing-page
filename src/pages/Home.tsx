@@ -108,7 +108,7 @@ const Home = () => {
         <ButtonWrapper>join the club</ButtonWrapper>
       </div>
       {/* contact us form */}
-      <div id="contact">
+      <div id="contact" className="mb-16">
       <ContactForm />
       </div>
     </div>
