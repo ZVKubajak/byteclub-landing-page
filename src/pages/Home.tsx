@@ -15,9 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     if (location.hash) {
-      // Delay scrolling to ensure the element is present in the DOM.
       setTimeout(() => {
-        const id = location.hash.substring(1); // remove the '#' character
+        const id = location.hash.substring(1);
         const targetElement = document.getElementById(id);
         if (targetElement) {
           const headerOffset = 90;
@@ -28,7 +27,7 @@ const Home = () => {
             behavior: "smooth",
           });
         }
-      }, 100); // Adjust delay if necessary
+      }, 100);
     }
   }, [location]);
 

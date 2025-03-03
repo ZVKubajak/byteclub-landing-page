@@ -1,61 +1,141 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Bell, Mail, ArrowRight, Check } from "lucide-react";
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [error, setError] = useState('');
+  const location = useLocation();
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleEmailChange = (e: any) => {
-    setEmail(e.target.value);
-    setError('');
-  };
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    if (!email) {
-      setError('Please enter a valid email address.');
-      return;
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.substring(1);
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          const headerOffset = 90;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     }
+  }, [location]);
 
-    // AI validation logic can be integrated here
-
-    // Simulate a successful subscription
-    setIsSubscribed(true);
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // Here you would typically handle the form submission
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 h-screen">
-      <h1 className="text-2xl font-bold text-center pt-40 mb-4">Welcome to [Your App Name]!</h1>
-      <p className="text-center mb-6">
-        Our app is launching soon, and we would love for you to engage with us. Subscribe to our newsletter to receive the latest updates on our development and launch.
-      </p>
-      {isSubscribed ? (
-        <p className="text-green-500 text-center">Thank you for subscribing!</p>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="pt-16 bg-gray-50 min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left Column - Content */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            />
-            {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+            <div className="inline-block bg-red-100 text-red-600 px-4 py-1 rounded-full font-medium text-sm mb-6">
+              Coming Soon
+            </div>
+            <h1 className="text-3xl font-bold mb-4 leading-tight">
+              Stay Ahead with Our <br />
+              <span className="text-[#fe262d]">Latest Updates</span>
+            </h1>
+            <p className="mb-6 text-gray-600">
+              Be the first to know when we launch and receive exclusive early-access benefits. Join our community of early adopters and help shape the future of our application.
+            </p>
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start">
+                <div className="bg-red-100 p-2 rounded-full mr-3">
+                  <Bell size={18} className="text-[#fe262d]" />
+                </div>
+                <div>
+                  <h3 className="font-medium">Launch Notifications</h3>
+                  <p className="text-sm text-gray-500">Be first in line when we officially launch</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-red-100 p-2 rounded-full mr-3">
+                  <Mail size={18} className="text-[#fe262d]" />
+                </div>
+                <div>
+                  <h3 className="font-medium">Weekly Development Updates</h3>
+                  <p className="text-sm text-gray-500">Stay informed about our progress and new features</p>
+                </div>
+              </div>
+            </div>
           </div>
+          
+          {/* Right Column - Form */}
           <div>
-            <button
-              type="submit"
-              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Subscribe
-            </button>
+            <div id="newsletter" className="bg-white shadow-lg rounded-xl p-8 border border-gray-100">
+              {!submitted ? (
+                <>
+                  <h2 className="text-2xl font-bold mb-6">Join Our Newsletter</h2>
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-6">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#fe262d] focus:border-[#fe262d] transition-all duration-200"
+                        required
+                      />
+                    </div>
+                    
+                    <div className="mb-6">
+                      <label className="flex items-start">
+                        <input
+                          type="checkbox"
+                          className="rounded border-gray-300 text-[#fe262d] mt-1"
+                        />
+                        <span className="ml-2 text-sm text-gray-500">
+                          I agree to receive marketing communications and can unsubscribe at any time.
+                        </span>
+                      </label>
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      className="w-full py-3 px-4 bg-[#fe262d] text-white rounded-lg hover:bg-[#e02420] transition-all duration-200 flex items-center justify-center font-medium"
+                    >
+                      Subscribe Now
+                      <ArrowRight size={18} className="ml-2" />
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="py-8 text-center">
+                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <Check size={30} className="text-green-600" />
+                  </div>
+                  <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
+                  <p className="text-gray-600 mb-6">
+                    You've successfully subscribed to our newsletter.
+                    We'll keep you updated with our progress.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="text-[#fe262d] font-medium hover:underline"
+                  >
+                    Subscribe another email
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        </form>
-      )}
+        </div>
+      </div>
     </div>
   );
 };
