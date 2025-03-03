@@ -43,21 +43,21 @@ const Home = () => {
         {/* Overlay for better text contrast */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
         {/* Hero text */}
-        <div className="relative text-left text-white mt-10">
-          <div className="pl-4 pr-10">
-            <h1 className="text-3xl">
+        <div className="relative text-left text-white mt-10 sm:mt-16">
+          <div className="pl-4 pr-10 sm:pl-10">
+            <h1 className="text-3xl sm:text-4xl">
               Introducing Byte Club: Your AI-Powered Culinary Companion
             </h1>
           </div>
-          <div className="pl-4 pr-10">
-            <p className="mt-4">
+          <div className="pl-4 pr-10 sm:pl-10">
+            <p className="mt-4 sm:mt-6 sm:text-lg">
               {" "}
               We integrate advanced AI to uncover exceptional culinary
               experiences beyond mainstream media. Enjoy early insights into
               emerging food trends and rewards that enrich your dining journey.
             </p>
           </div>
-          <div className="pl-4 pr-10">
+          <div className="pl-4 pr-10 sm:pl-10">
             <Link
               to="/register"
               className="inline-block bg-[#fe262d] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300"
@@ -70,30 +70,37 @@ const Home = () => {
       {/* our mission text */}
       <div
         id="mission"
-        className="absolute top-[525px] flex flex-col items-center bg-[#fe262d] mx-4 py-5 rounded-xl text-center px-4"
+        className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#fe262d] flex flex-col items-center rounded-xl text-center sm:mx-10"
       >
-        <h1 className="text-white text-xl font-semibold px-14 mb-2">AI Driven Reviews at your finger tips</h1>
-        <p className="text-white text-sm">INTRODUCING BYTE CLUB</p>
+        <h1 className="text-white text-xl font-semibold px-14 mb-2 sm:text-2xl sm:px-40">
+          AI Driven Reviews at your finger tips
+        </h1>
+        <p className="text-white text-sm sm:text-md">INTRODUCING BYTE CLUB</p>
         <p className="text-white text-lg">
           <img src={BrandLogo} className="my-5" width={200} alt="brand logo" />
         </p>
       </div>
       {/* info section */}
       <div className="pt-[260px] px-5 text-left">
-        <p className="text-lg mb-8">
+        <p className="text-lg mb-8 sm:mx-7">
           Experience a revolutionary dining companion designed to transform your
           food journey. Our innovative platform empowers you to review your
           favorite meals, earn exclusive rewards, and explore curated restaurant
           recommendations tailored to your tastes.
         </p>
-        <p className="text-lg mb-8">
-          With a sophisticated AI chatbot that intuitively connects you with the
-          best local culinary spots, discovering exceptional dining experiences
-          has never been easier.
+        <p className="text-lg mb-8 sm:mx-7">
+          With a sophisticated AI chatbot that intuitively connects you to the
+          finest local culinary spots, discovering exceptional dining
+          experiences is now easier than ever. Whether you're seeking hidden
+          gems or popular favorites, our AI guides you effortlessly to the
+          perfect meal, tailored to your tastes and preferences.
         </p>
-        <p className="text-lg mb-8">
-          Join a vibrant community where real-time reviews and shared
-          experiences inspire your next gastronomic adventure.
+        <p className="text-lg mb-8 sm:mx-7">
+          Join a vibrant and growing community where real-time reviews,
+          insightful recommendations, and shared experiences come together to
+          inspire your next gastronomic adventure. Connect with fellow food
+          enthusiasts and discover hidden culinary treasures, all while enjoying
+          the collective wisdom of a community passionate about great food.
         </p>
         <ButtonWrapper>get notified</ButtonWrapper>
       </div>
