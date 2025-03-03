@@ -28,12 +28,6 @@ const Footer = () => {
                 Established 2025
               </p>
             </div>
-            <div className="flex space-x-4">
-              <FiLinkedin size={20} />
-              <FiFacebook size={20} />
-              <FiInstagram size={20} />
-              <AiFillTikTok size={20} />
-            </div>
           </div>
 
           {/* Contact Info */}
@@ -51,14 +45,20 @@ const Footer = () => {
                 <span>support@byteclub.com</span>
               </li>
             </ul>
+            <div className="flex space-x-4 mt-5">
+              <FiLinkedin size={20} />
+              <FiFacebook size={20} />
+              <FiInstagram size={20} />
+              <AiFillTikTok size={20} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Copyright Section */}
-      <div className="bg-red-950 py-4">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-red-300">
+      <div className="bg-red-700 py-4 text-center">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center">
+          <div className="text-sm text-gray-100 text-center">
             © {currentYear} Byte Club™. All rights reserved.
           </div>
         </div>
