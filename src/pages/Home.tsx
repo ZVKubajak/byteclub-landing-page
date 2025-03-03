@@ -9,6 +9,7 @@ import Bryce from "../images/IMG_0240.jpg";
 import Phone from "../ui/3dPhone";
 import ButtonWrapper from "../ui/RegisterButton";
 import ContactForm from "../ui/ContactForm";
+import BrandLogo from "../images/image.png";
 
 const Home = () => {
   const location = useLocation();
@@ -21,7 +22,8 @@ const Home = () => {
         if (targetElement) {
           const headerOffset = 90;
           const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
           window.scrollTo({
             top: offsetPosition,
             behavior: "smooth",
@@ -35,30 +37,49 @@ const Home = () => {
     <div className="pt-[75px]">
       {/* Hero Section */}
       <div
-        className="relative h-96 bg-cover bg-center flex items-center justify-center"
+        className="relative h-[550px] bg-cover bg-center flex justify-center"
         style={{ backgroundImage: `url(${HeroPhoto})` }}
       >
         {/* Overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
         {/* Hero text */}
-        <div className="relative text-center text-white px-4">
-          <h1 className="text-4xl font-bold">AI-Driven Food Discoveries</h1>
-          <Link to="/register" className="underline">
-            Register Now
-          </Link>
+        <div className="relative text-left text-white mt-10">
+          <div className="pl-4 pr-10">
+            <h1 className="text-3xl">
+              Introducing Byte Club: Your AI-Powered Culinary Companion
+            </h1>
+          </div>
+          <div className="pl-4 pr-10">
+            <p className="mt-4">
+              {" "}
+              We integrate advanced AI to uncover exceptional culinary
+              experiences beyond mainstream media. Enjoy early insights into
+              emerging food trends and rewards that enrich your dining journey.
+            </p>
+          </div>
+          <div className="pl-4 pr-10">
+            <Link
+              to="/register"
+              className="inline-block bg-[#fe262d] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300"
+            >
+              Register Now
+            </Link>
+          </div>
         </div>
       </div>
       {/* our mission text */}
-      <div id="mission" className="absolute top-[380px] bg-[#fe262d] mx-4 py-5 text-center px-4">
-        <h1 className="text-white text-2xl font-semibold mb-5">Our Mission</h1>
+      <div
+        id="mission"
+        className="absolute top-[525px] flex flex-col items-center bg-[#fe262d] mx-4 py-5 rounded-xl text-center px-4"
+      >
+        <h1 className="text-white text-xl font-semibold px-14 mb-2">AI Driven Reviews at your finger tips</h1>
+        <p className="text-white text-sm">INTRODUCING BYTE CLUB</p>
         <p className="text-white text-lg">
-          We integrate advanced AI to uncover exceptional culinary experiences
-          beyond mainstream media. Enjoy early insights into emerging food
-          trends and rewards that enrich your dining journey.
+          <img src={BrandLogo} className="my-5" width={200} alt="brand logo" />
         </p>
       </div>
       {/* info section */}
-      <div className="pt-[230px] px-5 text-left">
+      <div className="pt-[260px] px-5 text-left">
         <p className="text-lg mb-8">
           Experience a revolutionary dining companion designed to transform your
           food journey. Our innovative platform empowers you to review your
@@ -131,7 +152,7 @@ const Home = () => {
       </div>
       {/* contact us form */}
       <div id="contact" className="mb-16">
-      <ContactForm />
+        <ContactForm />
       </div>
     </div>
   );
