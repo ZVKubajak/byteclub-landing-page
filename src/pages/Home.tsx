@@ -21,17 +21,13 @@ const Home = () => {
         {/* Hero text */}
         <div className="relative text-center text-white px-4">
           <h1 className="text-4xl font-bold">AI-Driven Food Discoveries</h1>
-          <p className="my-4 text-xl">
-            Dive into a new era of culinary experiences where cutting-edge AI
-            redefines food reviews.
-          </p>
           <Link to="/register" className="underline">
             Register Now
           </Link>
         </div>
       </div>
       {/* our mission text */}
-      <div id="mission" className="absolute top-[420px] bg-[#fe262d] mx-4 py-5 text-center px-4">
+      <div id="mission" className="absolute top-[380px] bg-[#fe262d] mx-4 py-5 text-center px-4">
         <h1 className="text-white text-2xl font-semibold mb-5">Our Mission</h1>
         <p className="text-white text-lg">
           We integrate advanced AI to uncover exceptional culinary experiences
@@ -40,7 +36,7 @@ const Home = () => {
         </p>
       </div>
       {/* info section */}
-      <div className="pt-[275px] px-5 text-left">
+      <div className="pt-[230px] px-5 text-left">
         <p className="text-lg mb-8">
           Experience a revolutionary dining companion designed to transform your
           food journey. Our innovative platform empowers you to review your
