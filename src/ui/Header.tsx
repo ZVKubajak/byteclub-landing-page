@@ -68,6 +68,30 @@ const NavLink = ({ text }: any) => {
 };
 
 const NavRight = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      // If not on the homepage, navigate to "/" with the hash.
+      navigate(`/#contact`);
+    } else {
+      // If already on the homepage, perform smooth scrolling.
+      const targetElement = document.getElementById("contact");
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   const handleRegisterClick = () => {
     window.location.href = "/register";
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -79,6 +103,7 @@ const NavRight = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         href="#contact"
+        onClick={handleContactClick}
         className="px-4 py-2 text-white bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
       >
         Contact Us
@@ -120,10 +145,8 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
     e.preventDefault();
 
     if (location.pathname !== "/") {
-      // Navigate to the homepage with the hash attached.
       navigate(`/#${id}`);
     } else {
-      // If already on the homepage, perform smooth scrolling.
       const targetElement = document.getElementById(id);
       if (targetElement) {
         const headerOffset = 90;
