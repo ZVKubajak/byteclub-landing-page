@@ -44,24 +44,46 @@ const NavLeft = ({ setIsOpen }: any) => {
         <FiMenu className="text-white md:text-[40px]" />
       </motion.button>
       <Logo />
-      <NavLink text="Solutions" />
-      <NavLink text="Community" />
-      <NavLink text="Pricing" />
-      <NavLink text="Company" />
+      <NavLink text="Our Mission" id="mission" />
+      <NavLink text="Meet the Team" id="meet-team" />
+      <NavLink text="The Vision" id="vision" />
+      <NavLink text="Contact Us" id="contact" />
     </div>
   );
 };
 
-const NavLink = ({ text }: any) => {
+const NavLink = ({ text, id }: any) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    } else {
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
   return (
     <a
-      href="#"
+      href={`#${id}`}
       rel="nofollow"
+      onClick={handleClick}
       className="hidden lg:block h-[30px] overflow-hidden font-medium"
     >
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
-        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
+        <span className="flex items-center h-[30px] text-white">{text}</span>
+        <span className="flex items-center h-[30px] text-white">{text}</span>
       </motion.div>
     </a>
   );
