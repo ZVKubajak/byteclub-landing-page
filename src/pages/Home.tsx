@@ -106,13 +106,14 @@ const Home = () => {
       </div>
       {/* meet the team section */}
       <div id="meet-team" className="text-center mt-9 px-8">
-        <h1 className="text-[#fe262d] text-lg">MEET THE BYTE CLUB</h1>
+        <h1 className="text-[#fe262d] text-lg">MEET THE BYTE TEAM</h1>
         <div className="mt-10 flex flex-col items-center">
           <TeamMember
             imgsrc={Mike}
             position="CEO @ Byte Club"
-            message="We're thrilled to launch our innovative venture, merging AI with the food industry to redefine dining."
+            message="We're thrilled to launch our venture, leveraging AI to enhance how people discover, experience, and enjoy dining like never before."
             name="Mike Little"
+            imageOnLeft={true}
           />
           <TeamMember
             imgsrc={Zander}
@@ -125,6 +126,7 @@ const Home = () => {
             position="Lead Developer @ Byte Club"
             message="Our goal is to leverage AI to revolutionize the dining experience, helping people effortlessly discover and enjoy the best food around."
             name="Bryce Berczik"
+            imageOnLeft={true}
           />
         </div>
       </div>
