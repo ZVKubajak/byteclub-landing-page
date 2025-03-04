@@ -34,12 +34,12 @@ const Register = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Director",
+      name: "Brooke Bell",
+      role: "",
       text: "I've been waiting for something like this. The early updates have been incredibly insightful."
     },
     {
-      name: "Michael Chen",
+      name: "John Pizzola",
       role: "Product Designer",
       text: "As an early subscriber, I'm impressed by the regular communication and transparency."
     }

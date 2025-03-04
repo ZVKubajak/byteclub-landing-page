@@ -14,9 +14,9 @@ const Footer = () => {
     <footer className="bg-[#fe262d] text-white">
       {/* Footer Main Content */}
       <div className="container mx-auto px-6 pt-8 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap gap-8 2xl:justify-evenly 2xl:gap-12">
           {/* Company Info */}
-          <div>
+          <div className="2xl:w-1/5">
             <h3 className="text-xl font-bold mb-4 pb-2 md:text-2xl lg:text-xl">
               Byte Club™
             </h3>
@@ -38,18 +38,22 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center">
                 <FiPhone className="mr-3 text-red-300 md:text-xl lg:text-lg" />
-                <span className=" md:text-xl lg:text-lg">+1 (555) 123-4567</span>
+                <span className=" md:text-xl lg:text-lg">
+                  +1 (555) 123-4567
+                </span>
               </li>
               <li className="flex items-center">
                 <FiMail className="mr-3 text-red-300 md:text-xl lg:text-lg" />
-                <span className=" md:text-xl lg:text-lg">support@byteclub.com</span>
+                <span className=" md:text-xl lg:text-lg">
+                  support@byteclub.com
+                </span>
               </li>
             </ul>
             <div className="flex space-x-4 mt-5">
-              <FiLinkedin className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5" />
-              <FiFacebook className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5" />
-              <FiInstagram className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5" />
-              <AiFillTikTok className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5" />
+              <FiLinkedin className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              <FiFacebook className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              <FiInstagram className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              <AiFillTikTok className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
             </div>
           </div>
         </div>
@@ -57,7 +61,7 @@ const Footer = () => {
 
       {/* Bottom Copyright Section */}
       <div className="bg-red-700 py-4 text-center">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center 2xl:justify-center">
           <div className="text-sm text-gray-100 text-center md:text-lg lg:text-[16px]">
             © {currentYear} Byte Club™. All rights reserved.
           </div>

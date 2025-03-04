@@ -30,7 +30,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
       {/* For tablet and above: Layout based on imageOnLeft prop */}
       {imageOnLeft ? (
         // Image on left, content on right
-        <div className="hidden sm:flex sm:items-center sm:justify-between sm:w-full sm:gap-10 xl:w-4/5 xl:mx-auto">
+        <div className="hidden sm:flex sm:items-center sm:justify-between sm:w-full sm:gap-10 xl:w-4/5 xl:mx-auto 2xl:w-3/5">
           <div className="w-1/3 flex justify-center">
             <img
               src={imgsrc}
@@ -48,7 +48,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
         </div>
       ) : (
         // Content on left, image on right
-        <div className="hidden sm:flex sm:items-center sm:justify-between sm:w-full sm:gap-10 xl:w-4/5 xl:mx-auto">
+        <div className="hidden sm:flex sm:items-center sm:justify-between sm:w-full sm:gap-10 xl:w-4/5 xl:mx-auto 2xl:w-3/5">
           <div className="w-2/3 text-left">
             <h1 className="text-2xl font-semibold mb-2">{name}</h1>
             <h2 className="text-md font-medium text-[#fe262d] mb-4">
