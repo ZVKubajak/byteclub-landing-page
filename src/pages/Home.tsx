@@ -10,6 +10,7 @@ import Phone from "../ui/3dPhone";
 import ButtonWrapper from "../ui/RegisterButton";
 import ContactForm from "../ui/ContactForm";
 import BrandLogo from "../images/image.png";
+import { FiArrowRight } from "react-icons/fi";
 
 const Home = () => {
   const location = useLocation();
@@ -45,11 +46,11 @@ const Home = () => {
         {/* Hero text */}
         <div className="relative text-left text-white mt-10 sm:mt-16">
           <div className="pl-4 pr-10 sm:pl-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
               Introducing Byte Club: Your AI-Powered Culinary Companion
             </h1>
           </div>
-          <div className="pl-4 pr-10 sm:pl-10">
+          <div className="pl-4 pr-10 sm:pl-10 lg:pr-60">
             <p className="mt-4 sm:mt-6 sm:text-lg md:text-xl">
               {" "}
               We integrate advanced AI to uncover exceptional culinary
@@ -60,9 +61,10 @@ const Home = () => {
           <div className="pl-4 pr-10 sm:pl-10">
             <Link
               to="/register"
-              className="inline-block bg-[#fe262d] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300 md:text-lg"
+              className="inline-flex items-center bg-[#fe262d] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300 md:text-lg gap-1"
             >
               Register Now
+              <FiArrowRight className="text-xl transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
@@ -89,20 +91,20 @@ const Home = () => {
       </div>
       {/* info section */}
       <div className="pt-[260px] md:pt-[310px] px-5 text-left">
-        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10">
+        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10 lg:mx-20">
           Experience a revolutionary dining companion designed to transform your
           food journey. Our innovative platform empowers you to review your
           favorite meals, earn exclusive rewards, and explore curated restaurant
           recommendations tailored to your tastes.
         </p>
-        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10">
+        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10 lg:mx-20">
           With a sophisticated AI chatbot that intuitively connects you to the
           finest local culinary spots, discovering exceptional dining
           experiences is now easier than ever. Whether you're seeking hidden
           gems or popular favorites, our AI guides you effortlessly to the
           perfect meal, tailored to your tastes and preferences.
         </p>
-        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10">
+        <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10 lg:mx-20">
           Join a vibrant and growing community where real-time reviews,
           insightful recommendations, and shared experiences come together to
           inspire your next gastronomic adventure. Connect with fellow food
@@ -141,7 +143,7 @@ const Home = () => {
       <div id="vision" className="text-center mt-9 px-5">
         <h1 className="text-[#fe262d] text-lg md:text-xl">OUR VISION</h1>
         <Phone />
-        <p className="text-lg text-left my-8 sm:mx-7 md:text-xl">
+        <p className="text-lg text-left my-8 sm:mx-7 md:text-xl lg:mx-20">
           Byte Club is revolutionizing the way people discover and review food,
           making dining decisions easier than ever. With cutting-edge AI
           technology, we help users see it before they eat it, providing visual
@@ -149,7 +151,7 @@ const Home = () => {
           on the menu—Byte Club empowers users to make confident choices for
           every meal.
         </p>
-        <p className="text-lg text-left mb-8 sm:mx-7 md:text-xl">
+        <p className="text-lg text-left mb-8 sm:mx-7 md:text-xl lg:mx-20">
           Our vision is to become the #1 source for food reviews nationwide,
           bringing innovation to every household. Through AI validation, we
           ensure reviews are authentic, unbiased, and tailored to each user’s
@@ -157,7 +159,7 @@ const Home = () => {
           technology, we’re creating a platform where everyone can dine with
           confidence.
         </p>
-        <p className="text-lg text-left mb-8 sm:mx-7 md:text-xl">
+        <p className="text-lg text-left mb-8 sm:mx-7 md:text-xl lg:mx-20">
           The future of dining is seamless, interactive, and powered by AI—and
           Byte Club is leading the way. Whether it's a family night out or
           discovering the hottest trending meals, Byte Club makes finding great

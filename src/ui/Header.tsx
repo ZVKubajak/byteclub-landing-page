@@ -29,7 +29,15 @@ const Logo = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return <img src={BrandLogo} onClick={handleHomeClick} width={45} alt="brand logo" />;
+  return (
+    <img
+      src={BrandLogo}
+      onClick={handleHomeClick}
+      className="cursor-pointer transition-transform duration-200 hover:scale-110"
+      width={45}
+      alt="brand logo"
+    />
+  );
 };
 
 const NavLeft = ({ setIsOpen }: any) => {
@@ -66,7 +74,8 @@ const NavLink = ({ text, id }: any) => {
       if (targetElement) {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -105,7 +114,8 @@ const NavRight = () => {
       if (targetElement) {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -173,7 +183,8 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
       if (targetElement) {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -196,13 +207,16 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
         <FiArrowRight className="h-[30px] text-gray-950 md:text-xl" />
       </motion.span>
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
-        <span className="flex items-center h-[30px] text-gray-500 md:text-lg">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
+        <span className="flex items-center h-[30px] text-gray-500 md:text-lg">
+          {text}
+        </span>
+        <span className="flex items-center h-[30px] text-indigo-600">
+          {text}
+        </span>
       </motion.div>
     </motion.a>
   );
 };
-
 
 export default Header;
 

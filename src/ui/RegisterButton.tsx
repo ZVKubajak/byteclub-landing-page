@@ -20,7 +20,7 @@ const RoundedSlideButton = ({ text }: { text: string }) => {
       className={`
         relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
         border-[#fe262d] px-4 py-2 font-semibold
-        uppercase text-[#fe262d] transition-all duration-500 md:text-xl
+        uppercase text-[#fe262d] transition-all duration-500 md:text-xl lg:text-[17px]
         
         before:absolute before:inset-0
         before:-z-10 before:translate-x-[150%]
