@@ -77,11 +77,11 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <h1 className="text-[#fe262d] text-center text-lg mt-4 mb-7">CONTACT</h1>
+      <h1 className="text-[#fe262d] text-center text-lg mt-4 mb-7 md:text-xl">CONTACT</h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-medium mb-2"
+            className="block text-gray-700 text-sm font-medium mb-2 md:text-lg"
             htmlFor="name"
           >
             Name
@@ -89,7 +89,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="name"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 md:text-lg"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -97,7 +97,7 @@ const ContactForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-medium mb-2"
+            className="block text-gray-700 text-sm font-medium mb-2 md:text-lg"
             htmlFor="email"
           >
             Email <span className="text-[#fe262d]">*</span>
@@ -105,7 +105,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="email"
-            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 ${
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 md:text-lg ${
               errors.email ? "border-red-500" : ""
             }`}
             placeholder="Enter your email"
@@ -126,14 +126,14 @@ const ContactForm = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-medium mb-2"
+            className="block text-gray-700 text-sm font-medium mb-2 md:text-lg"
             htmlFor="message"
           >
             Message <span className="text-[#fe262d]">*</span>
           </label>
           <textarea
             name="message"
-            className={`w-full px-4 py-2 border rounded-lg min-h-36 max-h-36 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+            className={`w-full px-4 py-2 border rounded-lg min-h-36 max-h-36 focus:outline-none focus:ring-2 md:text-lg focus:ring-red-500 ${
               errors.message ? "border-red-500" : ""
             }`}
             placeholder="Enter your feedback"
@@ -155,7 +155,7 @@ const ContactForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-[#fe262d] text-white py-2 px-4 rounded hover:bg-red-600 transition-all"
+          className="w-full bg-[#fe262d] text-white py-2 px-4 rounded hover:bg-red-600 transition-all md:text-lg"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Submit"}

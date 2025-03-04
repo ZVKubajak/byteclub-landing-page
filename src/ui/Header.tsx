@@ -15,7 +15,7 @@ const Header = () => {
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative">
+    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative border-b border-gray-300">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />

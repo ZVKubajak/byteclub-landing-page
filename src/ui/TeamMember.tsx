@@ -35,7 +35,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <img
               src={imgsrc}
               alt={`photo of ${name}`}
-              className="w-32 h-32 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
+              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
             />
           </div>
           <div className="w-2/3 text-right">
@@ -43,7 +43,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <h2 className="text-md font-medium text-[#fe262d] mb-4">
               {position}
             </h2>
-            <p className="text-md text-black opacity-80">{message}</p>
+            <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
           </div>
         </div>
       ) : (
@@ -54,13 +54,13 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <h2 className="text-md font-medium text-[#fe262d] mb-4">
               {position}
             </h2>
-            <p className="text-md text-black opacity-80">{message}</p>
+            <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
           </div>
           <div className="w-1/3 flex justify-center">
             <img
               src={imgsrc}
               alt={`photo of ${name}`}
-              className="w-32 h-32 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
+              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
             />
           </div>
         </div>
