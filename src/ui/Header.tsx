@@ -41,7 +41,7 @@ const NavLeft = ({ setIsOpen }: any) => {
         className="block lg:hidden text-gray-950 text-2xl"
         onClick={() => setIsOpen((prev: any) => !prev)}
       >
-        <FiMenu className="text-white" />
+        <FiMenu className="text-white md:text-[40px]" />
       </motion.button>
       <Logo />
       <NavLink text="Solutions" />
@@ -171,10 +171,10 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
-        <FiArrowRight className="h-[30px] text-gray-950" />
+        <FiArrowRight className="h-[30px] text-gray-950 md:text-xl" />
       </motion.span>
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
-        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
+        <span className="flex items-center h-[30px] text-gray-500 md:text-lg">{text}</span>
         <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
       </motion.div>
     </motion.a>
