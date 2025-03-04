@@ -134,7 +134,7 @@ const Home = () => {
       <div id="vision" className="text-center mt-9 px-5">
         <h1 className="text-[#fe262d] text-lg">OUR VISION</h1>
         <Phone />
-        <p className="text-lg text-left my-8">
+        <p className="text-lg text-left my-8 sm:mx-7">
           Byte Club is revolutionizing the way people discover and review food,
           making dining decisions easier than ever. With cutting-edge AI
           technology, we help users see it before they eat it, providing visual
@@ -142,7 +142,7 @@ const Home = () => {
           on the menu—Byte Club empowers users to make confident choices for
           every meal.
         </p>
-        <p className="text-lg text-left mb-8">
+        <p className="text-lg text-left mb-8 sm:mx-7">
           Our vision is to become the #1 source for food reviews nationwide,
           bringing innovation to every household. Through AI validation, we
           ensure reviews are authentic, unbiased, and tailored to each user’s
@@ -150,7 +150,7 @@ const Home = () => {
           technology, we’re creating a platform where everyone can dine with
           confidence.
         </p>
-        <p className="text-lg text-left mb-8">
+        <p className="text-lg text-left mb-8 sm:mx-7">
           The future of dining is seamless, interactive, and powered by AI—and
           Byte Club is leading the way. Whether it's a family night out or
           discovering the hottest trending meals, Byte Club makes finding great

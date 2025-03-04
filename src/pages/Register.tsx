@@ -32,7 +32,7 @@ const Register = () => {
   };
 
   return (
-    <div className="pt-16 bg-gray-50 min-h-screen">
+    <div className="pt-16 min-h-screen sm:mx-10">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Content */}
@@ -73,7 +73,7 @@ const Register = () => {
           
           {/* Right Column - Form */}
           <div>
-            <div id="newsletter" className="bg-white shadow-lg rounded-xl p-8 border border-gray-100">
+            <div id="newsletter" className="bg-white shadow-lg rounded-xl p-8 border border-gray-100 sm:mx-10">
               {!submitted ? (
                 <>
                   <h2 className="text-2xl font-bold mb-6">Join Our Newsletter</h2>
@@ -87,8 +87,8 @@ const Register = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="you@example.com"
-                        className="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-[#fe262d] focus:border-[#fe262d] transition-all duration-200"
+                        placeholder="Enter your email"
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                         required
                       />
                     </div>
@@ -124,12 +124,6 @@ const Register = () => {
                     You've successfully subscribed to our newsletter.
                     We'll keep you updated with our progress.
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-[#fe262d] font-medium hover:underline"
-                  >
-                    Subscribe another email
-                  </button>
                 </div>
               )}
             </div>
