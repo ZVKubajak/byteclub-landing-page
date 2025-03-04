@@ -15,7 +15,7 @@ const Header = () => {
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative">
+    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative border-b border-gray-300">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -29,7 +29,15 @@ const Logo = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return <img src={BrandLogo} onClick={handleHomeClick} width={45} alt="brand logo" />;
+  return (
+    <img
+      src={BrandLogo}
+      onClick={handleHomeClick}
+      className="cursor-pointer transition-transform duration-200 hover:scale-110"
+      width={45}
+      alt="brand logo"
+    />
+  );
 };
 
 const NavLeft = ({ setIsOpen }: any) => {
@@ -41,27 +49,50 @@ const NavLeft = ({ setIsOpen }: any) => {
         className="block lg:hidden text-gray-950 text-2xl"
         onClick={() => setIsOpen((prev: any) => !prev)}
       >
-        <FiMenu className="text-white" />
+        <FiMenu className="text-white md:text-[40px]" />
       </motion.button>
       <Logo />
-      <NavLink text="Solutions" />
-      <NavLink text="Community" />
-      <NavLink text="Pricing" />
-      <NavLink text="Company" />
+      <NavLink text="Our Mission" id="mission" />
+      <NavLink text="Meet the Team" id="meet-team" />
+      <NavLink text="The Vision" id="vision" />
+      <NavLink text="Contact Us" id="contact" />
     </div>
   );
 };
 
-const NavLink = ({ text }: any) => {
+const NavLink = ({ text, id }: any) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    } else {
+      const targetElement = document.getElementById(id);
+      if (targetElement) {
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
   return (
     <a
-      href="#"
+      href={`#${id}`}
       rel="nofollow"
+      onClick={handleClick}
       className="hidden lg:block h-[30px] overflow-hidden font-medium"
     >
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
-        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
+        <span className="flex items-center h-[30px] text-white">{text}</span>
+        <span className="flex items-center h-[30px] text-white">{text}</span>
       </motion.div>
     </a>
   );
@@ -83,7 +114,8 @@ const NavRight = () => {
       if (targetElement) {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -151,7 +183,8 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
       if (targetElement) {
         const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -171,16 +204,19 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
       className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
-        <FiArrowRight className="h-[30px] text-gray-950" />
+        <FiArrowRight className="h-[30px] text-gray-950 md:text-xl" />
       </motion.span>
       <motion.div whileHover={{ y: -30, transition: { duration: 0.25 } }}>
-        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">{text}</span>
+        <span className="flex items-center h-[30px] text-gray-500 md:text-lg">
+          {text}
+        </span>
+        <span className="flex items-center h-[30px] text-indigo-600">
+          {text}
+        </span>
       </motion.div>
     </motion.a>
   );
 };
-
 
 export default Header;
 
