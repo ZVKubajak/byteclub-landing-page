@@ -77,7 +77,9 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <h1 className="text-[#d4242a] text-center text-lg mt-4 mb-7 md:text-xl">CONTACT</h1>
+      <h1 className="text-[#d4242a] text-center text-lg mt-4 mb-7 md:text-xl">
+        CONTACT
+      </h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
           <label

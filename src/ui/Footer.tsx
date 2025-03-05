@@ -1,10 +1,5 @@
 import { AiFillTikTok } from "react-icons/ai";
-import {
-  FiMail,
-  FiLinkedin,
-  FiInstagram,
-  FiFacebook,
-} from "react-icons/fi";
+import { FiMail, FiLinkedin, FiInstagram, FiFacebook } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
