@@ -34,14 +34,14 @@ const AnimatedSection = ({ children, className = "" }: any) => {
       animate={controls}
       variants={{
         hidden: { opacity: 0, y: 50 },
-        visible: { 
-          opacity: 1, 
+        visible: {
+          opacity: 1,
           y: 0,
-          transition: { 
+          transition: {
             duration: 0.6,
-            ease: "easeOut"
-          }
-        }
+            ease: "easeOut",
+          },
+        },
       }}
       className={className}
     >
@@ -73,7 +73,7 @@ const Home = () => {
   }, [location]);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -91,44 +91,39 @@ const Home = () => {
             opacity: 1,
             transition: {
               delayChildren: 0.3,
-              staggerChildren: 0.2
-            }
-          }
+              staggerChildren: 0.2,
+            },
+          },
         }}
       >
         {/* Overlay for better text contrast */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
         {/* Hero text */}
-        <motion.div 
+        <motion.div
           className="relative text-left text-white mt-10 sm:mt-16"
           variants={{
             hidden: { opacity: 0, y: 20 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
-              transition: { duration: 0.5 }
-            }
+              transition: { duration: 0.5 },
+            },
           }}
         >
           <div className="pl-4 pr-10 sm:pl-10 xl:pl-44 xl:pr-40 2xl:pl-96 2xl:pr-80">
-            <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-            >
-              Introducing Byte Club: Your AI-Powered Culinary Companion
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              Byte Club: Revolutionizing Your Dining Experience with AI
             </h1>
           </div>
           <div className="pl-4 pr-10 sm:pl-10 lg:pr-60 xl:pl-44 xl:pr-80 2xl:pl-96 2xl:pr-[500px]">
-            <motion.p 
-              className="mt-4 sm:mt-6 sm:text-lg md:text-xl"
-            >
+            <motion.p className="mt-4 sm:mt-6 sm:text-lg md:text-xl">
               We integrate advanced AI to uncover exceptional culinary
               experiences beyond mainstream media. Enjoy early insights into
               emerging food trends and rewards that enrich your dining journey.
             </motion.p>
           </div>
           <div className="pl-4 pr-10 sm:pl-10 xl:pl-44 2xl:pl-96">
-            <motion.div
-            >
+            <motion.div>
               <Link
                 to="/register"
                 className="inline-flex items-center bg-[#d4242a] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300 md:text-lg gap-1"
@@ -142,9 +137,7 @@ const Home = () => {
       </motion.div>
 
       {/* Our Mission Section */}
-      <AnimatedSection 
-        className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#d4242a] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96"
-      >
+      <AnimatedSection className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#d4242a] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96">
         <h1 className="text-white text-xl font-semibold px-14 mb-2 sm:text-2xl sm:px-40 md:text-3xl">
           AI Driven Reviews at your finger tips
         </h1>
@@ -163,10 +156,10 @@ const Home = () => {
       <div className="pt-[260px] md:pt-[310px] px-5 text-left 2xl:pt-[220px]">
         <AnimatedSection className="mb-8">
           <p className="text-lg mb-8 sm:mx-7 md:text-xl md:mx-10 lg:mx-20 xl:mx-40 2xl:mx-96">
-            Experience a revolutionary dining companion designed to transform your
-            food journey. Our innovative platform empowers you to review your
-            favorite meals, earn exclusive rewards, and explore curated restaurant
-            recommendations tailored to your tastes.
+            Experience a revolutionary dining companion designed to transform
+            your food journey. Our innovative platform empowers you to review
+            your favorite meals, earn exclusive rewards, and explore curated
+            restaurant recommendations tailored to your tastes.
           </p>
         </AnimatedSection>
 
@@ -185,8 +178,9 @@ const Home = () => {
             Join a vibrant and growing community where real-time reviews,
             insightful recommendations, and shared experiences come together to
             inspire your next gastronomic adventure. Connect with fellow food
-            enthusiasts and discover hidden culinary treasures, all while enjoying
-            the collective wisdom of a community passionate about great food.
+            enthusiasts and discover hidden culinary treasures, all while
+            enjoying the collective wisdom of a community passionate about great
+            food.
           </p>
         </AnimatedSection>
 
@@ -236,14 +230,20 @@ const Home = () => {
           <h1 className="text-[#d4242a] text-lg md:text-xl">OUR VISION</h1>
         </AnimatedSection>
         <div>
-          <div className="flex flex-col items-center xl:flex-row xl:justify-evenly 2xl:mx-20">
-            <AnimatedSection><Phone /></AnimatedSection>
-            <AnimatedSection>
+          <div className="flex flex-col items-center xl:flex-row xl:justify-evenly 2xl:mx-20 2xl:my-20">
+            <AnimatedSection className="w-full flex justify-center xl:w-auto">
+              <Phone />
+            </AnimatedSection>
+            <AnimatedSection className="w-full flex flex-col items-center justify-center xl:w-auto">
               <img
                 src={firstImage}
                 alt="Photo of people taking photo of food"
                 className="rounded-lg shadow-lg sm:w-[475px] lg:w-[450px]"
               />
+              <p className="text-left mt-5 text-lg sm:w-[475px] lg:w-[450px] md:text-xl">
+                Discover an entirely new world of dining, where cutting-edge AI
+                transforms every meal into a personalized gourmet experience.
+              </p>
             </AnimatedSection>
           </div>
 
@@ -251,21 +251,21 @@ const Home = () => {
             <AnimatedSection>
               <p className="text-lg text-left my-8 sm:mx-7 md:text-xl lg:mx-20 xl:mx-44 2xl:mx-96">
                 Byte Club is revolutionizing the way people discover and review
-                food, making dining decisions easier than ever. With cutting-edge
-                AI technology, we help users see it before they eat it, providing
-                visual previews of dishes alongside trusted reviews. No more
-                guessing what's on the menu—Byte Club empowers users to make
-                confident choices for every meal.
+                food, making dining decisions easier than ever. With
+                cutting-edge AI technology, we help users see it before they eat
+                it, providing visual previews of dishes alongside trusted
+                reviews. No more guessing what's on the menu—Byte Club empowers
+                users to make confident choices for every meal.
               </p>
             </AnimatedSection>
             <AnimatedSection>
               <p className="text-lg text-left mb-8 sm:mx-7 md:text-xl lg:mx-20 xl:mx-44 2xl:mx-96">
-                Our vision is to become the #1 source for food reviews nationwide,
-                bringing innovation to every household. Through AI validation, we
-                ensure reviews are authentic, unbiased, and tailored to each
-                user's preferences. By combining community-driven insights with
-                smart technology, we're creating a platform where everyone can
-                dine with confidence.
+                Our vision is to become the #1 source for food reviews
+                nationwide, bringing innovation to every household. Through AI
+                validation, we ensure reviews are authentic, unbiased, and
+                tailored to each user's preferences. By combining
+                community-driven insights with smart technology, we're creating
+                a platform where everyone can dine with confidence.
               </p>
             </AnimatedSection>
             <AnimatedSection>
@@ -273,8 +273,8 @@ const Home = () => {
                 The future of dining is seamless, interactive, and powered by
                 AI—and Byte Club is leading the way. Whether it's a family night
                 out or discovering the hottest trending meals, Byte Club makes
-                finding great food simple and stress-free. Join us now and be part
-                of the movement that's transforming the way the world eats.
+                finding great food simple and stress-free. Join us now and be
+                part of the movement that's transforming the way the world eats.
               </p>
             </AnimatedSection>
             <ButtonWrapper>join the club</ButtonWrapper>
@@ -287,12 +287,16 @@ const Home = () => {
         id="contact"
         className="mb-20 flex flex-col mt-20 items-center mx-5 xl:flex-row xl:justify-evenly 2xl:mx-20"
       >
-        <AnimatedSection>
+        <AnimatedSection className="w-full flex flex-col items-center justify-center xl:w-auto">
           <img
             src={secondImage}
             alt="Photo of people taking photo of food"
             className="rounded-lg shadow-lg sm:w-[475px] lg:w-[450px]"
           />
+          <p className="text-left mt-5 text-lg sm:w-[475px] lg:w-[450px] md:text-xl ">
+            Feel free to reach out to us for more information about the release
+            or if you have any other questions or inquiries. We’re here to help!
+          </p>
         </AnimatedSection>
         <AnimatedSection className="w-full xl:w-1/3">
           <ContactForm />
