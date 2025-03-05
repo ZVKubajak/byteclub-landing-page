@@ -216,7 +216,7 @@ const Home = () => {
             <TeamMember
               imgsrc={Bryce}
               position="Lead Developer @ Byte Club"
-              message="Our goal is to leverage AI to revolutionize the dining experience, helping people effortlessly discover and enjoy the best food around."
+              message="We aim to revolutionize the dining experience by using AI to help people effortlessly find and enjoy the best food nearby."
               name="Bryce Berczik"
               imageOnLeft={true}
             />
