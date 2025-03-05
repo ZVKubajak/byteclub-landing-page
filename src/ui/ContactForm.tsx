@@ -77,7 +77,7 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <h1 className="text-[#fe262d] text-center text-lg mt-4 mb-7 md:text-xl">CONTACT</h1>
+      <h1 className="text-[#d4242a] text-center text-lg mt-4 mb-7 md:text-xl">CONTACT</h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
           <label
@@ -100,7 +100,7 @@ const ContactForm = () => {
             className="block text-gray-700 text-sm font-medium mb-2 md:text-lg"
             htmlFor="email"
           >
-            Email <span className="text-[#fe262d]">*</span>
+            Email <span className="text-[#d4242a]">*</span>
           </label>
           <input
             type="text"
@@ -129,7 +129,7 @@ const ContactForm = () => {
             className="block text-gray-700 text-sm font-medium mb-2 md:text-lg"
             htmlFor="message"
           >
-            Message <span className="text-[#fe262d]">*</span>
+            Message <span className="text-[#d4242a]">*</span>
           </label>
           <textarea
             name="message"
@@ -155,7 +155,7 @@ const ContactForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-[#fe262d] text-white py-2 px-4 rounded hover:bg-red-600 transition-all md:text-lg"
+          className="w-full bg-[#d4242a] text-white py-2 px-4 rounded hover:bg-red-600 transition-all md:text-lg"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Submit"}
@@ -176,7 +176,7 @@ const ContactForm = () => {
               animate={{ scale: 1, rotate: "0deg" }}
               exit={{ scale: 0, rotate: "0deg" }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#fe262d] text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+              className="bg-[#d4242a] text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
             >
               <FiAlertCircle className="text-white/40 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
               <div className="relative z-10">
@@ -186,7 +186,7 @@ const ContactForm = () => {
                   </div>
                 ) : (
                   <>
-                    <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-[#fe262d] grid place-items-center mx-auto">
+                    <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-[#d4242a] grid place-items-center mx-auto">
                       <FiAlertCircle />
                     </div>
                     <h3 className="text-3xl font-bold text-center mb-2">

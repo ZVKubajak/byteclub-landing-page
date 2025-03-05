@@ -1,7 +1,6 @@
 import { AiFillTikTok } from "react-icons/ai";
 import {
   FiMail,
-  FiPhone,
   FiLinkedin,
   FiInstagram,
   FiFacebook,
@@ -11,7 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#fe262d] text-white">
+    <footer className="bg-[#d4242a] text-white">
       {/* Footer Main Content */}
       <div className="container mx-auto px-6 pt-8 pb-12">
         <div className="flex flex-wrap gap-8 2xl:justify-evenly 2xl:gap-12">
@@ -36,12 +35,6 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-center">
-                <FiPhone className="mr-3 text-red-300 md:text-xl lg:text-lg" />
-                <span className=" md:text-xl lg:text-lg">
-                  +1 (555) 123-4567
-                </span>
-              </li>
               <li className="flex items-center">
                 <FiMail className="mr-3 text-red-300 md:text-xl lg:text-lg" />
                 <span className=" md:text-xl lg:text-lg">
