@@ -35,13 +35,13 @@ const Register = () => {
   const testimonials = [
     {
       name: "Brooke Bell",
-      role: "",
-      text: "I've been waiting for something like this. The early updates have been incredibly insightful."
+      role: "Freelance Editor",
+      text: "As an early subscriber, I appreciate the frequent updates on development and how every question about the app’s purpose is answered with clarity and detail."
     },
     {
       name: "John Pizzola",
-      role: "Product Designer",
-      text: "As an early subscriber, I'm impressed by the regular communication and transparency."
+      role: "Former Salesman at Sun and IBM",
+      text: "As an early subscriber, I’m impressed by the consistent communication and transparency in keeping us informed and engaged throughout development."
     }
   ];
 
@@ -108,10 +108,10 @@ const Register = () => {
           
           {/* Right Column - Form */}
           <div>
-            <div id="newsletter" className="bg-white shadow-xl rounded-xl p-6 md:p-8 border border-gray-100">
+            <div id="newsletter" className="bg-white rounded-xl p-6 md:p-8 border shadow-sm border-gray-100">
               {!submitted ? (
                 <>
-                  <h2 className="text-2xl font-bold mb-6">Join Our Newsletter</h2>
+                  <h2 className="text-2xl font-bold mb-6">Join the Byte Club Newsletter</h2>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -198,24 +198,24 @@ const Register = () => {
               <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Calendar size={24} className="text-[#fe262d]" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Alpha Testing</h3>
-              <p className="text-gray-600 mb-3">Internal testing phase with our core team to build the foundation.</p>
+              <h3 className="font-bold text-lg mb-2">App Development</h3>
+              <p className="text-gray-600 mb-3">Base development of our applications front and backend</p>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-green-500 h-2 rounded-full" style={{ width: '100%' }}></div>
+                <div className="bg-[#fe262d] h-2 rounded-full" style={{ width: '30%' }}></div>
               </div>
-              <p className="text-sm text-green-600 font-medium mt-2">Completed</p>
+              <p className="text-sm text-[#fe262d] font-medium mt-2">In Progress</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Calendar size={24} className="text-[#fe262d]" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Beta Testing</h3>
+              <h3 className="font-bold text-lg mb-2">Testing Phase</h3>
               <p className="text-gray-600 mb-3">Limited release to early subscribers for feedback and refinement.</p>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-[#fe262d] h-2 rounded-full" style={{ width: '65%' }}></div>
+                <div className="bg-[#fe262d] h-2 rounded-full" style={{ width: '0%' }}></div>
               </div>
-              <p className="text-sm text-[#fe262d] font-medium mt-2">In Progress</p>
+              <p className="text-sm text-gray-600 font-medium mt-2">Coming Soon</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
