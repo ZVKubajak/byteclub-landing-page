@@ -4,17 +4,20 @@
   "description": "A landing page for our upcoming app, Byte Club.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run client:build && npm run server",
-    "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
-    "server": "cd server && npm start && cd ..",
-    "server:dev": "cd server && npm run dev",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "client:build": "cd client && npm run build",
-    "client:dev": "cd client && npm run dev",
-    "build": "cd server && npm run build",
-    "render-build": "npm install && npm run build"
+    "start": "bun run client:build && bun run server",
+    "start:dev": "concurrently \"bun run server:dev\" \"wait-on tcp:3001 && bun run client:dev\"",
+    "server": "cd server && bun run start && cd ..",
+    "server:dev": "cd server && bun run dev",
+    "install": "cd server && bun install && cd ../client && bun install",
+    "client:build": "cd client && bun run build",
+    "client:dev": "cd client && bun run dev",
+    "build": "cd server && bun run build",
+    "render-build": "bun install && bun run build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
