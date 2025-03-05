@@ -42,7 +42,7 @@ const Register = () => {
     {
       name: "John Pizzola",
       role: "Former Salesman at Sun and IBM",
-      text: "As an early subscriber, I'm impressed by the consistent communication and transparency in keeping us informed and engaged throughout development."
+      text: "It's refreshing to see such transparent communication from the team, making us early subscribers feel genuinely involved throughout the development journey."
     }
   ];
 
