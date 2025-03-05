@@ -47,7 +47,7 @@ const Register = () => {
   ];
 
   return (
-    <div className="pt-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="pt-36 min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Hero Section */}
         <motion.div 
@@ -266,7 +266,7 @@ const Register = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-24">
             {testimonials.map((testimonial, index) => (
               <motion.div 
                 key={index}
