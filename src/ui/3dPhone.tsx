@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiBatteryCharging, FiWifi } from "react-icons/fi";
-import BrandLogo from "../images/image.png"
+import BrandLogo from "../images/image.png";
 
 const Phone = () => {
   return (
@@ -54,12 +54,16 @@ const HeaderBar = () => {
 };
 
 const Screen = () => {
+  const handleGetStarted = () => {
+    window.location.href = "/register";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
   return (
     <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-[#d4242a]">
       {/* Example logo from logoispum */}
       <img src={BrandLogo} width={175} alt="brand logo" />
 
-      <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-[1px] bg-white py-2 text-sm font-medium text-[#d4242a] backdrop-blur">
+      <button onClick={handleGetStarted} className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-[1px] bg-white py-2 text-sm font-medium text-[#d4242a] backdrop-blur">
         Get Started
       </button>
 
