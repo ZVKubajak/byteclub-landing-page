@@ -194,7 +194,7 @@ const Register = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="text-center mb-10">
+          <div className="text-center mt-28 mb-10">
             <h2 className="text-3xl font-bold mb-4">Our Launch Roadmap</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Follow our journey as we build and prepare for launch. Stay updated on our progress and what's coming next.
@@ -259,14 +259,14 @@ const Register = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="text-center mb-10">
+          <div className="text-center mt-28 mb-10">
             <h2 className="text-3xl font-bold mb-4">What Early Subscribers Are Saying</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Hear from others who've already joined our community and started receiving our updates.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-24">
+          <div className="grid md:grid-cols-2 gap-6 mb-32">
             {testimonials.map((testimonial, index) => (
               <motion.div 
                 key={index}
