@@ -210,7 +210,7 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
         <span className="flex items-center h-[30px] text-gray-500 md:text-lg">
           {text}
         </span>
-        <span className="flex items-center h-[30px] text-indigo-600">
+        <span className="flex items-center h-[30px] text-gray-500">
           {text}
         </span>
       </motion.div>
