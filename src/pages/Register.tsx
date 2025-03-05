@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Bell,
@@ -13,7 +12,6 @@ import {
 import { FiAlertCircle } from "react-icons/fi";
 
 const Register = () => {
-  const location = useLocation();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState("");
@@ -21,31 +19,12 @@ const Register = () => {
   const [errors, setErrors] = useState({
     email: "",
     name: "",
-    checked: ""
+    checked: "",
   });
-
-  useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => {
-        const id = location.hash.substring(1);
-        const targetElement = document.getElementById(id);
-        if (targetElement) {
-          const headerOffset = 90;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition =
-            elementPosition + window.pageYOffset - headerOffset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-        }
-      }, 100);
-    }
-  }, [location]);
 
   const validateForm = () => {
     let isValid = true;
-    const newErrors = { name: "", email: "", checked: ""};
+    const newErrors = { name: "", email: "", checked: "" };
 
     // Validate name
     if (!name.trim()) {
@@ -64,7 +43,8 @@ const Register = () => {
 
     // validate is checked
     if (!checked) {
-      newErrors.checked = "To proceed, you need to opt-in to receive our newsletters.";
+      newErrors.checked =
+        "To proceed, you need to opt-in to receive our newsletters.";
       isValid = false;
     }
 
@@ -80,7 +60,7 @@ const Register = () => {
 
     setName("");
     setEmail("");
-    setChecked(false)
+    setChecked(false);
     setSubmitted(true);
   };
 
@@ -250,8 +230,8 @@ const Register = () => {
                           type="checkbox"
                           onChange={(e) => setChecked(e.target.checked)}
                           className={`rounded border-gray-300 text-[#d4242a] mt-1 ${
-                          errors.email ? "border-red-500" : ""
-                        }`}
+                            errors.email ? "border-red-500" : ""
+                          }`}
                         />
                         <span className="ml-2 text-sm text-gray-500">
                           I agree to receive marketing communications and
