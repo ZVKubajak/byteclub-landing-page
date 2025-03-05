@@ -15,12 +15,12 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
           <img
             src={imgsrc}
             alt={`photo of ${name}`}
-            className="w-24 h-24 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
+            className="w-24 h-24 rounded-full border-2 border-[#d4242a] transform scale-105 object-cover"
           />
         </div>
         <div>
           <h1 className="text-2xl font-semibold text-center mb-2">{name}</h1>
-          <h2 className="text-md text-center font-medium text-[#fe262d] mb-4">
+          <h2 className="text-md text-center font-medium text-[#d4242a] mb-4">
             {position}
           </h2>
           <p className="text-center text-md text-black opacity-80">{message}</p>
@@ -35,12 +35,12 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <img
               src={imgsrc}
               alt={`photo of ${name}`}
-              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
+              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#d4242a] transform scale-105 object-cover"
             />
           </div>
           <div className="w-2/3 text-right">
             <h1 className="text-2xl font-semibold mb-2">{name}</h1>
-            <h2 className="text-md font-medium text-[#fe262d] mb-4">
+            <h2 className="text-md font-medium text-[#d4242a] mb-4">
               {position}
             </h2>
             <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
@@ -51,7 +51,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
         <div className="hidden sm:flex sm:items-center sm:justify-between sm:w-full sm:gap-10 xl:w-4/5 xl:mx-auto 2xl:w-4/5">
           <div className="w-2/3 text-left">
             <h1 className="text-2xl font-semibold mb-2">{name}</h1>
-            <h2 className="text-md font-medium text-[#fe262d] mb-4">
+            <h2 className="text-md font-medium text-[#d4242a] mb-4">
               {position}
             </h2>
             <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
@@ -60,7 +60,7 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <img
               src={imgsrc}
               alt={`photo of ${name}`}
-              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#fe262d] transform scale-105 object-cover"
+              className="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-[#d4242a] transform scale-105 object-cover"
             />
           </div>
         </div>

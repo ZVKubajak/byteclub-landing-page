@@ -15,7 +15,7 @@ const Header = () => {
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[#fe262d] p-4 flex items-center justify-between relative border-b border-gray-300">
+    <nav className="bg-[#d4242a] p-4 flex items-center justify-between relative border-b border-gray-300">
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -144,7 +144,7 @@ const NavRight = () => {
         onClick={handleRegisterClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-white text-[#fe262d] font-medium rounded-md whitespace-nowrap"
+        className="px-4 py-2 bg-white text-[#d4242a] font-medium rounded-md whitespace-nowrap"
       >
         Register
       </motion.button>

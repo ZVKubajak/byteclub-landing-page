@@ -70,7 +70,7 @@ const Register = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Stay Ahead with Our <br />
-              <span className="text-[#fe262d]">Latest Updates</span>
+              <span className="text-[#d4242a]">Latest Updates</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-lg">
               Be the first to know when we launch and receive exclusive early-access benefits. Join our growing community of early adopters and help shape the future of our application.
@@ -92,7 +92,7 @@ const Register = () => {
                   className="flex items-start p-4 bg-white rounded-lg shadow-sm border border-gray-100"
                 >
                   <div className="bg-red-100 p-2 rounded-full mr-3 shrink-0">
-                    <benefit.icon size={18} className="text-[#fe262d]" />
+                    <benefit.icon size={18} className="text-[#d4242a]" />
                   </div>
                   <div>
                     <h3 className="font-medium">{benefit.title}</h3>
@@ -149,7 +149,7 @@ const Register = () => {
                       <label className="flex items-start">
                         <input
                           type="checkbox"
-                          className="rounded border-gray-300 text-[#fe262d] mt-1"
+                          className="rounded border-gray-300 text-[#d4242a] mt-1"
                           required
                         />
                         <span className="ml-2 text-sm text-gray-500">
@@ -160,7 +160,7 @@ const Register = () => {
                     
                     <button
                       type="submit"
-                      className="w-full py-3 px-4 bg-[#fe262d] text-white rounded-lg hover:bg-[#e02420] transition-all duration-200 flex items-center justify-center font-medium"
+                      className="w-full py-3 px-4 bg-[#d4242a] text-white rounded-lg hover:bg-[#e02420] transition-all duration-200 flex items-center justify-center font-medium"
                     >
                       Subscribe Now
                       <ArrowRight size={18} className="ml-2" />
@@ -234,17 +234,17 @@ const Register = () => {
                 className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
               >
                 <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <roadmap.icon size={24} className="text-[#fe262d]" />
+                  <roadmap.icon size={24} className="text-[#d4242a]" />
                 </div>
                 <h3 className="font-bold text-lg mb-2">{roadmap.title}</h3>
                 <p className="text-gray-600 mb-3">{roadmap.desc}</p>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className={`${roadmap.status === "In Progress" ? "bg-[#fe262d]" : "bg-gray-400"} h-2 rounded-full`} 
+                    className={`${roadmap.status === "In Progress" ? "bg-[#d4242a]" : "bg-gray-400"} h-2 rounded-full`} 
                     style={{ width: `${roadmap.progress}%` }}
                   ></div>
                 </div>
-                <p className={`text-sm font-medium mt-2 ${roadmap.status === "In Progress" ? "text-[#fe262d]" : "text-gray-600"}`}>
+                <p className={`text-sm font-medium mt-2 ${roadmap.status === "In Progress" ? "text-[#d4242a]" : "text-gray-600"}`}>
                   {roadmap.status}
                 </p>
               </motion.div>
@@ -278,7 +278,7 @@ const Register = () => {
               >
                 <div className="flex items-center mb-4">
                   <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
-                    <span className="text-[#fe262d] font-bold">{testimonial.name.charAt(0)}</span>
+                    <span className="text-[#d4242a] font-bold">{testimonial.name.charAt(0)}</span>
                   </div>
                   <div>
                     <h4 className="font-bold">{testimonial.name}</h4>

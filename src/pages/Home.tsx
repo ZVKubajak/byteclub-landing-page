@@ -131,7 +131,7 @@ const Home = () => {
             >
               <Link
                 to="/register"
-                className="inline-flex items-center bg-[#fe262d] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300 md:text-lg gap-1"
+                className="inline-flex items-center bg-[#d4242a] text-white mt-5 py-2 px-3 rounded-xl text-md font-medium hover:bg-red-700 transition-colors duration-300 md:text-lg gap-1"
               >
                 Register Now
                 <FiArrowRight className="text-xl transition-transform duration-300 group-hover:translate-x-1" />
@@ -143,7 +143,7 @@ const Home = () => {
 
       {/* Our Mission Section */}
       <AnimatedSection 
-        className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#fe262d] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96"
+        className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#d4242a] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96"
       >
         <h1 className="text-white text-xl font-semibold px-14 mb-2 sm:text-2xl sm:px-40 md:text-3xl">
           AI Driven Reviews at your finger tips
@@ -196,7 +196,7 @@ const Home = () => {
       {/* Meet the Team Section */}
       <div id="meet-team" className="text-center mt-20 px-8">
         <AnimatedSection>
-          <h1 className="text-[#fe262d] text-lg md:text-xl">
+          <h1 className="text-[#d4242a] text-lg md:text-xl">
             MEET THE BYTE TEAM
           </h1>
         </AnimatedSection>
@@ -233,7 +233,7 @@ const Home = () => {
       {/* Our Vision Section */}
       <div id="vision" className="text-center mt-20 px-5">
         <AnimatedSection>
-          <h1 className="text-[#fe262d] text-lg md:text-xl">OUR VISION</h1>
+          <h1 className="text-[#d4242a] text-lg md:text-xl">OUR VISION</h1>
         </AnimatedSection>
         <div>
           <div className="flex flex-col items-center xl:flex-row xl:justify-evenly 2xl:mx-20">
