@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import BrandLogo from "../images/white-byte-club.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -13,9 +13,32 @@ const Header = () => {
 };
 
 const FlipNav = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        // Change this value to adjust when the padding should decrease
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-[#d4242a] p-4 flex items-center justify-between relative border-b border-gray-300">
+    <nav
+      className={`bg-[#d4242a] px-4 ${
+        isScrolling ? "py-4" : "py-5"
+      } flex items-center justify-between relative border-b border-gray-300 transition-all duration-300 ease-in-out`}
+    >
       <NavLeft setIsOpen={setIsOpen} />
       <NavRight />
       <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -210,9 +233,7 @@ const MenuLink = ({ text, id, closeMenu }: any) => {
         <span className="flex items-center h-[30px] text-gray-500 md:text-lg">
           {text}
         </span>
-        <span className="flex items-center h-[30px] text-gray-500">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
       </motion.div>
     </motion.a>
   );
