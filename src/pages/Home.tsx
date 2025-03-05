@@ -194,7 +194,7 @@ const Home = () => {
       </div>
 
       {/* Meet the Team Section */}
-      <div id="meet-team" className="text-center mt-9 px-8">
+      <div id="meet-team" className="text-center mt-20 px-8">
         <AnimatedSection>
           <h1 className="text-[#fe262d] text-lg md:text-xl">
             MEET THE BYTE TEAM
@@ -231,7 +231,7 @@ const Home = () => {
       </div>
 
       {/* Our Vision Section */}
-      <div id="vision" className="text-center mt-9 px-5">
+      <div id="vision" className="text-center mt-20 px-5">
         <AnimatedSection>
           <h1 className="text-[#fe262d] text-lg md:text-xl">OUR VISION</h1>
         </AnimatedSection>
@@ -285,7 +285,7 @@ const Home = () => {
       {/* Contact Us Form */}
       <div
         id="contact"
-        className="mb-16 flex flex-col items-center mx-5 xl:flex-row xl:justify-evenly 2xl:mx-20"
+        className="mb-20 flex flex-col mt-20 items-center mx-5 xl:flex-row xl:justify-evenly 2xl:mx-20"
       >
         <AnimatedSection>
           <img
