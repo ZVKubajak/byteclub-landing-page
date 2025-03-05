@@ -6,7 +6,13 @@ interface ITeam {
   imageOnLeft?: boolean;
 }
 
-const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => {
+const TeamMember = ({
+  imgsrc,
+  name,
+  position,
+  message,
+  imageOnLeft,
+}: ITeam) => {
   return (
     <div className="text-gray-800 sm:my-4 p-6 w-full transform transition-all hover:scale-105">
       {/* For mobile: Items stack vertically regardless of position */}
@@ -43,7 +49,9 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <h2 className="text-md font-medium text-[#d4242a] mb-4">
               {position}
             </h2>
-            <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
+            <p className="text-md text-black opacity-80 md:text-lg">
+              {message}
+            </p>
           </div>
         </div>
       ) : (
@@ -54,7 +62,9 @@ const TeamMember = ({ imgsrc, name, position, message, imageOnLeft }: ITeam) => 
             <h2 className="text-md font-medium text-[#d4242a] mb-4">
               {position}
             </h2>
-            <p className="text-md text-black opacity-80 md:text-lg">{message}</p>
+            <p className="text-md text-black opacity-80 md:text-lg">
+              {message}
+            </p>
           </div>
           <div className="w-1/3 flex justify-center">
             <img

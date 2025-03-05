@@ -30,7 +30,8 @@ const Register = () => {
         if (targetElement) {
           const headerOffset = 90;
           const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
           window.scrollTo({
             top: offsetPosition,
             behavior: "smooth",
