@@ -4,7 +4,7 @@ import { sendNewsletterEmail } from "./emailService";
 
 const prisma = new PrismaClient();
 
-cron.schedule("*/10 * * * * *", async () => {
+cron.schedule('0 8 * * 1', async () => {
   try {
     console.log("Cron job connected.")
     const subscribers = await prisma.user.findMany();

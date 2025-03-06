@@ -14,3 +14,14 @@ export async function sendNewsletterEmail(to: string, name: string) {
   };
   await sgMail.send(msg);
 }
+
+export async function sendWelcomeEmail(to: string, name: string) {
+  const msg = {
+    to: to,
+    from: "bryceberczik.dev@gmail.com",
+    subject: "Welcome to Byte Club!",
+    text: `Hello ${name},\n\nWelcome to Byte Club! We're excited to have you on board. Stay tuned for our latest updates and news.`,
+    html: `<p>Hello ${name},</p><p>Welcome to Byte Club! We're excited to have you on board. Stay tuned for our latest updates and news.</p>`,
+  };
+  await sgMail.send(msg);
+}
