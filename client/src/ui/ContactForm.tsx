@@ -50,7 +50,7 @@ const ContactForm = () => {
     setIsModalOpen(true); // Open modal only after validation passes
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "73a6d637-0dd7-4625-ba1a-3c217cac240a");
+    formData.append("access_key", "2f199c4e-a60f-4d49-a39b-1e566b6ed589");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
