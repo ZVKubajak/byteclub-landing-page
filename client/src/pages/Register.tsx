@@ -10,12 +10,14 @@ import {
   Shield,
 } from "lucide-react";
 import { FiAlertCircle } from "react-icons/fi";
+import { subscribe, getSubscriber } from "../services/subscribe";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState("");
   const [checked, setChecked] = useState(false);
+  const [alreadySubscribed, setAlreadySubscribed] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
     name: "",
@@ -71,16 +73,37 @@ const Register = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
+  
+    try {
+      const existingUser = await getSubscriber(email);
 
-    setName("");
-    setEmail("");
-    setChecked(false);
-    setSubmitted(true);
+      if (existingUser && 
+          existingUser.email === email && 
+          existingUser.name) {
+        setAlreadySubscribed(true);
+        return;
+      }
+      
+      if (Array.isArray(existingUser) && existingUser.length > 0) {
+        setAlreadySubscribed(true);
+        return;
+      }
+  
+      await subscribe(name, email);
+      
+      setName("");
+      setEmail("");
+      setChecked(false);
+      setSubmitted(true);
+      
+    } catch (error) {
+      console.error("Error occurred in handleSubmit function:", error);
+    }
   };
 
   const testimonials = [
@@ -182,12 +205,43 @@ const Register = () => {
               id="newsletter"
               className="bg-white rounded-xl p-6 md:p-8 border shadow-sm border-gray-100"
             >
-              {!submitted ? (
+              {submitted ? (
+                <div className="py-8 text-center">
+                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <Check size={30} className="text-green-600" />
+                  </div>
+                  <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
+                  <p className="text-gray-600 mb-6">
+                    You've successfully subscribed to our newsletter. We'll keep
+                    you updated with our progress.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Look out for our welcome email in your inbox shortly!
+                  </p>
+                </div>
+              ) : alreadySubscribed ? (
+                <div className="py-8 text-center">
+                  <div className="mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                    <Bell size={30} className="text-yellow-600" />
+                  </div>
+                  <h2 className="text-2xl font-bold mb-2">
+                    Already Subscribed!
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    It looks like this email is already registered with us.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    You're all set to receive our updates. If you're not
+                    receiving emails, please check your spam folder.
+                  </p>
+                </div>
+              ) : (
                 <>
                   <h2 className="text-2xl font-bold mb-6">
                     Join the Byte Club Newsletter
                   </h2>
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Existing form content... */}
                     <div>
                       <label
                         htmlFor="name"
@@ -229,6 +283,10 @@ const Register = () => {
                           if (errors.email) {
                             setErrors({ ...errors, email: "" });
                           }
+                          // Reset alreadySubscribed state when email changes
+                          if (alreadySubscribed) {
+                            setAlreadySubscribed(false);
+                          }
                         }}
                         placeholder="Enter your email"
                         className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 ${
@@ -247,6 +305,7 @@ const Register = () => {
                       <label className="flex items-start">
                         <input
                           type="checkbox"
+                          checked={checked}
                           onChange={(e) => setChecked(e.target.checked)}
                           className={`rounded border-gray-300 text-[#d4242a] mt-1 ${
                             errors.email ? "border-red-500" : ""
@@ -274,20 +333,6 @@ const Register = () => {
                     </button>
                   </form>
                 </>
-              ) : (
-                <div className="py-8 text-center">
-                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <Check size={30} className="text-green-600" />
-                  </div>
-                  <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
-                  <p className="text-gray-600 mb-6">
-                    You've successfully subscribed to our newsletter. We'll keep
-                    you updated with our progress.
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Look out for our welcome email in your inbox shortly!
-                  </p>
-                </div>
               )}
             </div>
           </motion.div>

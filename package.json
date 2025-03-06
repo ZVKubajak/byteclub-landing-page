@@ -1,37 +1,24 @@
 {
-  "name": "vite-react-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "byteclub-landing-page",
+  "version": "1.0.0",
+  "description": "A landing page for our upcoming app, Byte Club.",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "bun run client:build && bun run server",
+    "start:dev": "concurrently \"bun run server:dev\" \"wait-on tcp:3001 && bun run client:dev\"",
+    "server": "cd server && bun run start && cd ..",
+    "server:dev": "cd server && bun run dev",
+    "install": "cd server && bun install && cd ../client && bun install",
+    "client:build": "cd client && bun run build",
+    "client:dev": "cd client && bun run dev",
+    "build": "cd server && bun run build",
+    "render-build": "bun install && bun run build"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "framer-motion": "^12.4.7",
-    "lucide-react": "^0.344.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.2.0",
-    "react-use-measure": "^2.1.7"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.18",
-    "eslint": "^9.9.1",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.11",
-    "globals": "^15.9.0",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.2"
   }
 }

@@ -1,1 +1,1 @@
-# byteclub-landing-page
+# Byte club app
