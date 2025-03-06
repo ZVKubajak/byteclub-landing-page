@@ -1,4 +1,5 @@
 import sgMail from "@sendgrid/mail";
+import { unsubscribe } from "../controllers/subscribeController";
 const API_KEY = process.env.SENDGRID_API_KEY;
 
 sgMail.setApiKey(API_KEY!);
@@ -15,6 +16,9 @@ export async function sendNewsletterEmail(to: string, name: string) {
 }
 
 export async function sendWelcomeEmail(to: string, name: string) {
+  // Create a URL-safe version of the email
+  const encodedEmail = encodeURIComponent(to);
+  
   const msg = {
     to: to,
     from: "bryceberczik.dev@gmail.com",
@@ -22,6 +26,8 @@ export async function sendWelcomeEmail(to: string, name: string) {
     text: `Hello ${name},
 
 Welcome to Byte Club! We're excited to have you on board. Stay tuned for our latest updates and news.
+
+To unsubscribe, visit: http://localhost:3001/unsubscribe?email=${encodedEmail}
 
 —The Byte Club Team`,
     html: `
@@ -105,7 +111,7 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
                         <td style="color: #6c757d; font-size: 13px; line-height: 1.5; text-align: center;">
                           <p style="margin: 0 0 10px 0;">© 2025 Byte Club. All rights reserved.</p>
                           <p style="margin: 0;">
-                            <a href="#" style="color: #e02d31; text-decoration: none;">Unsubscribe</a>
+                            <a href="http://localhost:3001/unsubscribe?email=${encodedEmail}" style="color: #e02d31; text-decoration: none;">Unsubscribe</a>
                           </p>
                         </td>
                       </tr>
