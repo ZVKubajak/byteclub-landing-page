@@ -76,7 +76,7 @@ export const subscribe = async (req: Request, res: Response) => {
 };
 
 export const unsubscribe = async (req: Request, res: Response) => {
-  const { email } = req.body;
+  const { email } = req.params;
   const parsedBody = subscribeSchema.pick({ email: true }).safeParse({ email });
 
   if (!parsedBody.success) {
@@ -92,7 +92,7 @@ export const unsubscribe = async (req: Request, res: Response) => {
     });
 
     if (!user) {
-      res.status(404).json({ message: "No user found with that ID." });
+      res.status(404).json({ message: "No user found with that email." });
       return;
     }
 

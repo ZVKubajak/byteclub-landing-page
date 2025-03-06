@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { FiAlertCircle } from "react-icons/fi";
 import { subscribe, getSubscriber } from "../services/subscribe";
+import RedLoading from "../ui/RedLoading";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [checked, setChecked] = useState(false);
   const [alreadySubscribed, setAlreadySubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
     name: "",
@@ -80,29 +82,34 @@ const Register = () => {
     }
   
     try {
+      setIsLoading(true);
       const existingUser = await getSubscriber(email);
 
       if (existingUser && 
           existingUser.email === email && 
           existingUser.name) {
         setAlreadySubscribed(true);
+        setIsLoading(false);
         return;
       }
       
       if (Array.isArray(existingUser) && existingUser.length > 0) {
         setAlreadySubscribed(true);
+        setIsLoading(false);
         return;
       }
   
       await subscribe(name, email);
-      
+      console.log("testing")
       setName("");
       setEmail("");
       setChecked(false);
       setSubmitted(true);
+      setIsLoading(false);
       
     } catch (error) {
       console.error("Error occurred in handleSubmit function:", error);
+      setIsLoading(false);
     }
   };
 
@@ -205,7 +212,12 @@ const Register = () => {
               id="newsletter"
               className="bg-white rounded-xl p-6 md:p-8 border shadow-sm border-gray-100"
             >
-              {submitted ? (
+              {isLoading ? (
+                <div className="py-16 text-center">
+                  <RedLoading />
+                  <p className="text-gray-600 mt-4">Processing your subscription...</p>
+                </div>
+              ) : submitted ? (
                 <div className="py-8 text-center">
                   <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                     <Check size={30} className="text-green-600" />

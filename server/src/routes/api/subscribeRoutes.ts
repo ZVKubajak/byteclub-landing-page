@@ -5,6 +5,6 @@ const router = Router();
 
 router.get("/:email", getSubscriber);
 router.post("/", subscribe);
-router.delete("/", unsubscribe);
+router.delete("/:email", unsubscribe);
 
 export { router as subscribeRouter };
