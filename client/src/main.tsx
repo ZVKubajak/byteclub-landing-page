@@ -6,6 +6,7 @@ import "./index.css";
 import Home from "./pages/Home.tsx";
 import Register from "./pages/Register.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
+import UnsubscribePage from "./pages/UnsubscribePage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/unsubscribe/:email",
+        element: <UnsubscribePage />
+      }
     ],
   },
 ]);

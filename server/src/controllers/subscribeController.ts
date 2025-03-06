@@ -92,7 +92,7 @@ export const unsubscribe = async (req: Request, res: Response) => {
     });
 
     if (!user) {
-      res.status(404).json({ message: "No user found with that ID." });
+      res.status(404).json({ message: "No user found with that email." });
       return;
     }
 
