@@ -68,7 +68,7 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 30px 0;">
                       <tr>
                         <td align="center">
-                          <a href="#" style="background-color: #e02d31; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 16px;">Explore Our Site</a>
+                          <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer" style="background-color: #e02d31; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 16px;">Explore Our Site</a>
                         </td>
                       </tr>
                     </table>
@@ -105,7 +105,6 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
                         <td style="color: #6c757d; font-size: 13px; line-height: 1.5; text-align: center;">
                           <p style="margin: 0 0 10px 0;">© 2025 Byte Club. All rights reserved.</p>
                           <p style="margin: 0;">
-                            <a href="#" style="color: #e02d31; text-decoration: none;">Privacy Policy</a> • 
                             <a href="#" style="color: #e02d31; text-decoration: none;">Unsubscribe</a>
                           </p>
                         </td>
