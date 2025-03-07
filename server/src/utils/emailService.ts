@@ -1,36 +1,35 @@
-import sgMail from "@sendgrid/mail";
-import { unsubscribe } from "../controllers/subscribeController";
-const API_KEY = process.env.SENDGRID_API_KEY;
+import { Recipient, EmailParams, MailerSend, Sender } from "mailersend";
 
-sgMail.setApiKey(API_KEY!);
+const API_KEY = process.env.MAILERSEND_API_KEY;
+const mailersend = new MailerSend({ apiKey: API_KEY! });
 
 export async function sendNewsletterEmail(to: string, name: string) {
-  const msg = {
-    to: to,
-    from: "bryceberczik.dev@gmail.com",
-    subject: "Your Weekly Newsletter",
-    text: `Hello ${name},\n\nHere’s your weekly update...`,
-    html: `<p>Hello ${name},</p><p>Here’s your weekly update...</p>`,
-  };
-  await sgMail.send(msg);
+  const recipient = new Recipient(to, name);
+
+  const emailParams = new EmailParams()
+    .setFrom(new Sender("support@byteclubapp.com", "Byteclub Support"))
+    .setTo([recipient])
+    .setSubject("Your Weekly Newsletter")
+    .setText(`Hello ${name},\n\nHere’s your weekly update...`)
+    .setHtml(`<p>Hello ${name},</p><p>Here’s your weekly update...</p>`);
+
+  try {
+    // Send the email using MailerSend's API.
+    await mailersend.email.send(emailParams);
+  } catch (error) {
+    console.error("Failed to send newsletter email:", error);
+    throw error;
+  }
 }
 
 export async function sendWelcomeEmail(to: string, name: string) {
   // Create a URL-safe version of the email
   const encodedEmail = encodeURIComponent(to);
-  
-  const msg = {
-    to: to,
-    from: "bryceberczik.dev@gmail.com",
-    subject: "Welcome to Byte Club!",
-    text: `Hello ${name},
+  const recipient = new Recipient(to, name);
 
-Welcome to Byte Club! We're excited to have you on board. Stay tuned for our latest updates and news.
-
-—The Byte Club Team`,
-    html: `
-      <!DOCTYPE html>
-      <html>
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,9 +59,7 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
                     <p style="margin: 0 0 20px 0;">
                       We're thrilled to welcome you to <strong style="color: #e02d31;">Byte Club</strong>! You're now part of our vibrant community of food lovers! Here, we're dedicated to uncovering the best dining experiences near you—and you'll earn rewards every time you treat yourself to a memorable meal.
                     </p>
-                    <p style="margin: 0 0 20px 0;">
-                      Here's what you can expect:
-                    </p>
+                    <p style="margin: 0 0 20px 0;">Here's what you can expect:</p>
                     <ul style="margin: 0 0 25px 0; padding-left: 20px;">
                       <li style="margin-bottom: 8px;">Unlock exclusive insights into our app development journey</li>
                       <li style="margin-bottom: 8px;">Gain early access to cutting-edge beta features</li>
@@ -76,9 +73,7 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
                         </td>
                       </tr>
                     </table>
-                    <p style="margin: 20px 0 10px 0;">
-                      Have questions? Visit our site to contact us.
-                    </p>
+                    <p style="margin: 20px 0 10px 0;">Have questions? Visit our site to contact us.</p>
                     <p style="margin: 25px 0 0 0; font-weight: 600;">Happy coding!</p>
                     <p style="margin: 5px 0 0 0; font-weight: 600; color: #e02d31;">The Byte Club Team</p>
                   </td>
@@ -121,8 +116,26 @@ Welcome to Byte Club! We're excited to have you on board. Stay tuned for our lat
           </tr>
         </table>
       </body>
-      </html>
-    `,
-  };
-  await sgMail.send(msg);
+    </html>
+  `;
+
+  const emailParams = new EmailParams()
+    .setFrom(new Sender("support@byteclubapp.com", "Byteclub Support"))
+    .setTo([recipient])
+    .setSubject("Welcome to Byte Club!")
+    .setText(
+      `Hello ${name},
+
+Welcome to Byte Club! We're excited to have you on board. Stay tuned for our latest updates and news.
+
+—The Byte Club Team`
+    )
+    .setHtml(htmlContent);
+
+  try {
+    await mailersend.email.send(emailParams);
+  } catch (error) {
+    console.error("Failed to send welcome email:", error);
+    throw error;
+  }
 }
