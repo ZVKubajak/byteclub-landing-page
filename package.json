@@ -1,0 +1,24 @@
+{
+  "name": "byteclub-landing-page",
+  "version": "1.0.0",
+  "description": "A landing page for our upcoming app, Byte Club.",
+  "main": "index.js",
+  "scripts": {
+    "start": "bun run client:build && bun run server",
+    "start:dev": "concurrently \"bun run server:dev\" \"wait-on tcp:3001 && bun run client:dev\"",
+    "server": "cd server && bun run start && cd ..",
+    "server:dev": "cd server && bun run dev",
+    "install": "cd server && bun install && cd ../client && bun install",
+    "client:build": "cd client && bun run build",
+    "client:dev": "cd client && bun run dev",
+    "build": "cd server && bun run build",
+    "render-build": "bun install && bun run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.2"
+  }
+}
