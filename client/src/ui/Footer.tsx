@@ -33,15 +33,39 @@ const Footer = () => {
               <li className="flex items-center">
                 <FiMail className="mr-3 text-red-300 md:text-xl lg:text-lg" />
                 <span className=" md:text-xl lg:text-lg">
-                  support@byteclub.com
+                  support@byteclubapp.com
                 </span>
               </li>
             </ul>
             <div className="flex space-x-4 mt-5">
-              <FiLinkedin className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
-              <FiFacebook className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
-              <FiInstagram className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
-              <AiFillTikTok className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              <a
+                href="https://www.linkedin.com/in/byte-club-837a83354/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiLinkedin className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61574064445155"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiFacebook className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              </a>
+              <a
+                href="https://www.instagram.com/byteclubappofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiInstagram className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@byteclubofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiFillTikTok className="w-5 h-5 md:w-7 md:h-7 lg:h-5 lg:w-5 cursor-pointer transition-transform duration-200 hover:scale-110" />
+              </a>
             </div>
           </div>
         </div>

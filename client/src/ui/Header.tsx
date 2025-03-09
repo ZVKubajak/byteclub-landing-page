@@ -95,7 +95,7 @@ const NavLink = ({ text, id }: any) => {
     } else {
       const targetElement = document.getElementById(id);
       if (targetElement) {
-        const headerOffset = 90;
+        const headerOffset = 200;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;

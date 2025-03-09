@@ -1,4 +1,5 @@
 import { Recipient, EmailParams, MailerSend, Sender } from "mailersend";
+import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -28,7 +29,7 @@ export async function sendNewsletterEmail(to: string, name: string) {
 
 export async function sendWelcomeEmail(to: string, name: string) {
   // Create a URL-safe version of the email
-  const encodedEmail = encodeURIComponent(to);
+  const encodedEmail = await bcrypt.hash(to, 10);
   const recipient = new Recipient(to, name);
 
   const htmlContent = `
@@ -73,7 +74,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 30px 0;">
                       <tr>
                         <td align="center">
-                          <a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer" style="background-color: #e02d31; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 16px;">Explore Our Site</a>
+                          <a href="https://www.byteclubapp.com/" target="_blank" rel="noopener noreferrer" style="background-color: #e02d31; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; display: inline-block; font-size: 16px;">Explore Our Site</a>
                         </td>
                       </tr>
                     </table>
@@ -123,7 +124,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
                         <td style="color: #6c757d; font-size: 13px; line-height: 1.5; text-align: center;">
                           <p style="margin: 0 0 10px 0;">© 2025 Byte Club. All rights reserved.</p>
                           <p style="margin: 0;">
-                            <a href="http://localhost:3000/unsubscribe/${encodedEmail}" style="color: #e02d31; text-decoration: none;">Unsubscribe</a>
+                            <a href="https://www.byteclubapp.com/unsubscribe/${encodedEmail}" style="color: #e02d31; text-decoration: none;">Unsubscribe</a>
                           </p>
                         </td>
                       </tr>
