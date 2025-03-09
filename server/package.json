@@ -26,7 +26,7 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
-    "start": "bun run build && node dist/server.js --ignore client",
+    "start": "npm run build && node dist/server.js --ignore client",
     "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc"
   },
