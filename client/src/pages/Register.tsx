@@ -100,7 +100,6 @@ const Register = () => {
       }
   
       await subscribe(name, email);
-      console.log("testing")
       setName("");
       setEmail("");
       setChecked(false);
@@ -244,7 +243,7 @@ const Register = () => {
                   </p>
                   <p className="text-sm text-gray-500">
                     You're all set to receive our updates. If you're not
-                    receiving emails, please check your spam folder.
+                    receiving emails, please check your spam or promotions folder.
                   </p>
                 </div>
               ) : (

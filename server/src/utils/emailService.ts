@@ -1,6 +1,10 @@
 import { Recipient, EmailParams, MailerSend, Sender } from "mailersend";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const API_KEY = process.env.MAILERSEND_API_KEY;
+console.log("apikey: ", API_KEY);
 const mailersend = new MailerSend({ apiKey: API_KEY! });
 
 export async function sendNewsletterEmail(to: string, name: string) {
@@ -74,28 +78,43 @@ export async function sendWelcomeEmail(to: string, name: string) {
                       </tr>
                     </table>
                     <p style="margin: 20px 0 10px 0;">Have questions? Visit our site to contact us.</p>
-                    <p style="margin: 25px 0 0 0; font-weight: 600;">Happy coding!</p>
+                    <p style="margin: 25px 0 0 0; font-weight: 600;">Sincerely</p>
                     <p style="margin: 5px 0 0 0; font-weight: 600; color: #e02d31;">The Byte Club Team</p>
                   </td>
                 </tr>
-                <!-- Social Media -->
-                <tr>
-                  <td align="center" style="padding: 0 40px 30px;">
-                    <table border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="padding: 0 10px;">
-                          <a href="#" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background-color: #f0f2f5; border-radius: 50%; color: #e02d31; font-weight: bold; text-decoration: none;">T</a>
-                        </td>
-                        <td style="padding: 0 10px;">
-                          <a href="#" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background-color: #f0f2f5; border-radius: 50%; color: #e02d31; font-weight: bold; text-decoration: none;">L</a>
-                        </td>
-                        <td style="padding: 0 10px;">
-                          <a href="#" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background-color: #f0f2f5; border-radius: 50%; color: #e02d31; font-weight: bold; text-decoration: none;">G</a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
+<!-- Social Media -->
+<tr>
+  <td align="center" style="padding: 0 40px 30px;">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <!-- LinkedIn -->
+        <td style="padding: 0 10px;">
+          <a href="https://www.linkedin.com/in/byte-club-837a83354/" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            in
+          </a>
+        </td>
+        <!-- Instagram -->
+        <td style="padding: 0 10px;">
+          <a href="https://www.instagram.com/byteclubappofficial/" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            ig
+          </a>
+        </td>
+        <!-- Facebook -->
+        <td style="padding: 0 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61574064445155" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            fb
+          </a>
+        </td>
+        <!-- TikTok -->
+        <td style="padding: 0 10px;">
+          <a href="https://www.tiktok.com/@byteclubofficial" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            tt
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
                 <!-- Footer -->
                 <tr>
                   <td style="background-color: #f8f9fa; padding: 30px 40px; border-top: 1px solid #e9ecef;">
