@@ -82,48 +82,39 @@ export async function sendWelcomeEmail(to: string, name: string) {
                     <p style="margin: 5px 0 0 0; font-weight: 600; color: #e02d31;">The Byte Club Team</p>
                   </td>
                 </tr>
-                <!-- Social Media -->
+<!-- Social Media -->
 <tr>
   <td align="center" style="padding: 0 40px 30px;">
     <table border="0" cellpadding="0" cellspacing="0">
       <tr>
         <!-- LinkedIn -->
         <td style="padding: 0 10px;">
-          <a href="https://www.linkedin.com/in/byte-club-837a83354/" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 448 512">
-              <path fill="#e02d31" d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.6 53.6 0 1 1 53.6-53.6 53.6 53.6 0 0 1-53.6 53.6zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.4-79.3-48.4 0-55.8 37.8-55.8 76.7V448H158.2V148.9h89V196h1.3c12.4-23.5 42.6-48.4 87.7-48.4 93.8 0 111.1 61.8 111.1 142.3V448z"/>
-            </svg>
+          <a href="https://www.linkedin.com/in/byte-club-837a83354/" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            in
           </a>
         </td>
         <!-- Instagram -->
         <td style="padding: 0 10px;">
-          <a href="https://www.instagram.com/byteclubappofficial/" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 448 512">
-              <path fill="#e02d31" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 189.6c-41.3 0-74.7-33.4-74.7-74.7 0-41.3 33.4-74.7 74.7-74.7 41.3 0 74.7 33.4 74.7 74.7 0 41.3-33.4 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80.1c-1-21.6-5.7-40.7-20.4-55.3C364.7 10.7 345.6 6 324 5c-21.4-1-85.8-1-107.2 0-21.6 1-40.7 5.7-55.3 20.4C135.3 39.3 130.6 58.4 129.6 80c-1 21.4-1 85.8 0 107.2 1 21.6 5.7 40.7 20.4 55.3 14.6 14.6 33.7 19.3 55.3 20.4 21.4 1 85.8 1 107.2 0 21.6-1 40.7-5.7 55.3-20.4 14.6-14.6 19.3-33.7 20.4-55.3 1-21.4 1-85.8 0-107.2zM398.8 338c0 29.2-23.7 52.9-52.9 52.9H102.1c-29.2 0-52.9-23.7-52.9-52.9V173.1c0-29.2 23.7-52.9 52.9-52.9h243.8c29.2 0 52.9 23.7 52.9 52.9V338z"/>
-            </svg>
+          <a href="https://www.instagram.com/byteclubappofficial/" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            ig
           </a>
         </td>
         <!-- Facebook -->
         <td style="padding: 0 10px;">
-          <a href="https://www.facebook.com/profile.php?id=61574064445155" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 320 512">
-              <path fill="#e02d31" d="M279.14 288l14.22-92.66h-88.91V131.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S259.91 0 225.36 0C141.09 0 89.09 54.42 89.09 153.69v68.65H0v92.66h89.09V512h107.75V288z"/>
-            </svg>
+          <a href="https://www.facebook.com/profile.php?id=61574064445155" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            fb
           </a>
         </td>
         <!-- TikTok -->
         <td style="padding: 0 10px;">
-          <a href="https://www.tiktok.com/@byteclubofficial" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 448 512">
-              <path fill="#e02d31" d="M448,209.91a210.39,210.39,0,0,1-123.74-38.23v98.6a137.91,137.91,0,0,1-137.91,137.91A137.91,137.91,0,0,1,149,270.51V164.33a210.38,210.38,0,0,1-123.74-38.23V488A24,24,0,0,0,49,512H125a24,24,0,0,0,24-24V345.91a84,84,0,1,1,85-84v-44A208.91,208.91,0,0,1,448,209.91Z"/>
-            </svg>
+          <a href="https://www.tiktok.com/@byteclubofficial" style="display: inline-block; background-color: #e02d31; color: white; width: 32px; height: 32px; text-align: center; line-height: 32px; border-radius: 4px; font-weight: bold; text-decoration: none;">
+            tt
           </a>
         </td>
       </tr>
     </table>
   </td>
 </tr>
-
                 <!-- Footer -->
                 <tr>
                   <td style="background-color: #f8f9fa; padding: 30px 40px; border-top: 1px solid #e9ecef;">
