@@ -100,7 +100,6 @@ const Register = () => {
       }
   
       await subscribe(name, email);
-      console.log("testing")
       setName("");
       setEmail("");
       setChecked(false);
