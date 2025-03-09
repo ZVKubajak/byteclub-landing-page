@@ -137,20 +137,24 @@ const Home = () => {
       </motion.div>
 
       {/* Our Mission Section */}
-      <AnimatedSection className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#d4242a] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96">
-        <h1 className="text-white text-xl font-semibold px-14 mb-2 sm:text-2xl sm:px-40 md:text-3xl">
-          AI Driven Reviews at your finger tips
-        </h1>
-        <p className="text-white text-sm sm:text-md md:text-lg">INTRODUCING</p>
-        <p className="text-white text-lg">
-          <img
-            src={BrandLogo}
-            className="my-5 md:w-[225px]"
-            width={200}
-            alt="brand logo"
-          />
-        </p>
-      </AnimatedSection>
+      <div id="mission">
+        <AnimatedSection className="absolute top-[525px] left-0 right-0 mx-4 py-5 bg-[#d4242a] flex flex-col items-center rounded-xl text-center sm:mx-10 md:mx-20 xl:mx-44 2xl:mx-96">
+          <h1 className="text-white text-xl font-semibold px-14 mb-2 sm:text-2xl sm:px-40 md:text-3xl">
+            AI Driven Reviews at your finger tips
+          </h1>
+          <p className="text-white text-sm sm:text-md md:text-lg">
+            INTRODUCING
+          </p>
+          <p className="text-white text-lg">
+            <img
+              src={BrandLogo}
+              className="my-5 md:w-[225px]"
+              width={200}
+              alt="brand logo"
+            />
+          </p>
+        </AnimatedSection>
+      </div>
 
       {/* Subsequent Sections with Scroll Animations */}
       <div className="pt-[260px] md:pt-[310px] px-5 text-left 2xl:pt-[220px]">
