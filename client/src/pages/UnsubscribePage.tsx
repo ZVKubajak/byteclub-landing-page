@@ -30,7 +30,7 @@ const UnsubscribePage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/api/subscribe/${encodeURIComponent(email)}`,
+        `/api/subscribe/${encodeURIComponent(email)}`,
         {
           method: "DELETE",
           headers: {
