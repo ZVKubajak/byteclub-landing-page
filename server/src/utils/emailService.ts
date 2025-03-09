@@ -1,6 +1,10 @@
 import { Recipient, EmailParams, MailerSend, Sender } from "mailersend";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const API_KEY = process.env.MAILERSEND_API_KEY;
+console.log("apikey: ", API_KEY)
 const mailersend = new MailerSend({ apiKey: API_KEY! });
 
 export async function sendNewsletterEmail(to: string, name: string) {
