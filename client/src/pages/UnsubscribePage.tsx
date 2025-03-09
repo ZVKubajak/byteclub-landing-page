@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import bcrypt from "bcryptjs";
 
 const UnsubscribePage = () => {
-  const { email: encodedEmail } = useParams();
-  const decodedEmail = decodeURIComponent(encodedEmail || "");
+  // The URL param contains the bcrypt hash of the email.
+  const { email: encodedHash } = useParams();
+  const hashedEmail = decodeURIComponent(encodedHash || "");
 
-  const [email, setEmail] = useState(decodedEmail);
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  // Start with an empty email input; the hash remains hidden.
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (decodedEmail) {
-      setEmail(decodedEmail);
-    }
-  }, [decodedEmail]);
 
   const handleUnsubscribe = async () => {
     if (!email) {
@@ -24,6 +19,14 @@ const UnsubscribePage = () => {
     }
 
     setStatus("loading");
+
+    // Compare the user input email with the hashed email.
+    const isMatch = await bcrypt.compare(email, hashedEmail);
+    if (!isMatch) {
+      setStatus("error");
+      setMessage("The provided email does not match our records.");
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -42,9 +45,7 @@ const UnsubscribePage = () => {
       }
 
       setStatus("success");
-      setMessage(
-        "You have been successfully unsubscribed from Byte Club emails."
-      );
+      setMessage("You have been successfully unsubscribed from Byte Club emails.");
     } catch (error) {
       setStatus("error");
       setMessage(
@@ -70,8 +71,7 @@ const UnsubscribePage = () => {
         ) : (
           <>
             <p className="mb-6 text-gray-600">
-              We're sorry to see you go! Please confirm your email address below
-              to unsubscribe from our mailing list.
+              We're sorry to see you go! Please confirm your email address below to unsubscribe from our mailing list.
             </p>
 
             <div className="mb-4">
@@ -88,7 +88,6 @@ const UnsubscribePage = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
                 placeholder="Enter your email"
-                readOnly={!!decodedEmail} // Prevents editing if pre-filled
               />
             </div>
 

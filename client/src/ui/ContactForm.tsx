@@ -61,6 +61,7 @@ const ContactForm = () => {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
+      console.log("CONTACT FORM SENT")
       event.target.reset();
       setName("");
       setEmail("");
@@ -69,6 +70,7 @@ const ContactForm = () => {
       setResult("Uh oh, something went wrong");
       event.target.reset();
       setName("");
+      console.log("CONTACT FORM FAILED")
       setEmail("");
       setMessage("");
     }

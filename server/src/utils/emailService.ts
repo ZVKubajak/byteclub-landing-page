@@ -1,4 +1,5 @@
 import { Recipient, EmailParams, MailerSend, Sender } from "mailersend";
+import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -28,7 +29,7 @@ export async function sendNewsletterEmail(to: string, name: string) {
 
 export async function sendWelcomeEmail(to: string, name: string) {
   // Create a URL-safe version of the email
-  const encodedEmail = encodeURIComponent(to);
+  const encodedEmail = await bcrypt.hash(to, 10);
   const recipient = new Recipient(to, name);
 
   const htmlContent = `
